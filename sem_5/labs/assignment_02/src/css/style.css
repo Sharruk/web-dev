@@ -1,0 +1,778 @@
+/* ============================================================
+   TechNova 2026 - Main Stylesheet
+   SSN College of Engineering
+   Department of Computer Science and Engineering
+   Web Development Lab - Assignment 02
+   ============================================================ */
+
+/* ============================================================
+   1. GLOBAL RESET AND BOX MODEL
+   Using: box-sizing, margin, padding, element selector
+   ============================================================ */
+
+/* Element selector - applies to everything on the page */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Element selector - base body styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   2. TYPOGRAPHY
+   Using: font-family, font-size, font-weight, text-align,
+          text-transform, letter-spacing
+   ============================================================ */
+
+/* Element selectors for headings */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #003366;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #004080;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* ============================================================
+   3. HEADER
+   Using: background-color, text-align, padding, flexbox
+   ============================================================ */
+
+/* Element selector - header */
+header {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+/* Descendant selector - h1 inside header */
+header h1 {
+    color: white;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+/* Descendant selector - h3 inside header */
+header h3 {
+    color: #ccddff;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* Class selector - logo image in header */
+.header-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    display: block;
+    margin: 0 auto 10px auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================
+   4. NAVIGATION BAR
+   Using: flexbox, sticky, hover, background-color, transition
+   ============================================================ */
+
+/* Element selector + sticky positioning */
+nav {
+    background-color: #004080;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Class selector for nav label */
+.nav-label {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+/* Descendant selector - anchor tags inside nav */
+nav a {
+    color: #ccddff;
+    text-decoration: none;
+    padding: 12px 14px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover selector - nav links on hover */
+nav a:hover {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+/* Class selector - active navigation link */
+.active-link {
+    background-color: #0055aa;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* ============================================================
+   5. BANNER IMAGE
+   Using: img, responsive width, box-shadow, display
+   ============================================================ */
+
+/* Class selector for banner */
+.banner-section {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #e8eef5;
+}
+
+/* Class selector - banner image */
+.banner-img {
+    width: 100%;
+    max-width: 860px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   6. MAIN CONTENT AREA
+   Using: padding, margin, background-color
+   ============================================================ */
+
+/* Class selector - wraps main page content */
+.main-content {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+}
+
+/* ============================================================
+   7. SECTION STYLING
+   ============================================================ */
+
+/* Class selector for page sections */
+.section-block {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* ID selector - used on the overview section of home page */
+#symposium-overview {
+    background-color: #f0f4ff;
+    border-left: 4px solid #003366;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   8. HIGHLIGHTS SECTION (FLEXBOX)
+   Using: display: flex, flex-wrap, justify-content
+   ============================================================ */
+
+/* Class selector - highlights container, uses Flexbox */
+.highlights-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Class selector - each highlight card */
+.highlight-card {
+    background-color: #003366;
+    color: white;
+    padding: 20px 25px;
+    text-align: center;
+    border-radius: 6px;
+    min-width: 150px;
+    flex: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect on highlight cards */
+.highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Descendant selector - number inside card */
+.highlight-card .highlight-number {
+    font-size: 26px;
+    font-weight: bold;
+    display: block;
+}
+
+/* Descendant selector - label inside card */
+.highlight-card .highlight-label {
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   9. EVENTS GRID (CSS GRID)
+   Used for: Technical Events and Non-Technical Events
+   ============================================================ */
+
+/* Class selector - grid container for event cards */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* Class selector - individual event card */
+.event-card {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+/* Hover effect on event cards */
+.event-card:hover {
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Class selector - event images */
+.event-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.95;
+    transition: opacity 0.3s;
+}
+
+/* Hover effect on event images */
+.event-img:hover {
+    opacity: 1;
+}
+
+/* ============================================================
+   10. TABLES
+   Used for: Schedule table and Prize tables
+   Using: borders, alternate row colors, hover effect,
+          header styling
+   ============================================================ */
+
+/* Class selector - common table style */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Descendant selectors - table header and cells */
+.styled-table th,
+.styled-table td {
+    border: 1px solid #aaaaaa;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+/* Descendant selector - table header row */
+.styled-table thead th {
+    background-color: #003366;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+/* Alternate row color - odd rows */
+.styled-table tbody tr:nth-child(odd) {
+    background-color: #f5f8ff;
+}
+
+/* Alternate row color - even rows */
+.styled-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hover effect on table rows */
+.styled-table tbody tr:hover {
+    background-color: #ddeeff;
+}
+
+/* ============================================================
+   11. REGISTRATION FORM
+   Using: labels, inputs, select, textarea, buttons,
+          focus effect
+   ============================================================ */
+
+/* Class selector - form container */
+.form-container {
+    max-width: 600px;
+}
+
+/* Class selector - form group wraps each label + input pair */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Descendant selector - labels inside form */
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+/* Descendant selectors - inputs, select, textarea inside form */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container select,
+.form-container textarea {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect on form inputs */
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-color: #003366;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+    background-color: #ffffff;
+}
+
+/* Class selector - form section heading */
+.form-section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 5px;
+    margin: 20px 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Class selector - submit button */
+.btn-submit {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+/* Hover effect on submit button */
+.btn-submit:hover {
+    background-color: #0055aa;
+    transform: scale(1.03);
+}
+
+/* Class selector - reset button */
+.btn-reset {
+    background-color: #888888;
+    color: #ffffff;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Hover effect on reset button */
+.btn-reset:hover {
+    background-color: #555555;
+}
+
+/* ============================================================
+   12. CONTACT PAGE (FLEXBOX)
+   Using: flexbox layout for the contact info section
+   ============================================================ */
+
+/* Class selector - flex container for contact details */
+.contact-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* Class selector - each contact info block */
+.contact-block {
+    flex: 1;
+    min-width: 220px;
+    background-color: #f0f4ff;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+/* Descendant selector - headings inside contact block */
+.contact-block h3 {
+    color: #003366;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #aabbcc;
+    padding-bottom: 5px;
+}
+
+/* Class selector - location image */
+.map-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 6px;
+    border: 2px solid #cccccc;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin-top: 10px;
+}
+
+/* ============================================================
+   13. LISTS
+   Using: margin, padding, list-style
+   ============================================================ */
+
+/* Element selectors for lists */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* ============================================================
+   14. HORIZONTAL RULE
+   ============================================================ */
+
+hr {
+    border: none;
+    border-top: 1px solid #cccccc;
+    margin: 15px 0;
+}
+
+/* ============================================================
+   15. FOOTER (FLEXBOX)
+   Using: flexbox, background-color, padding, text-align,
+          pseudo-element, text-shadow
+   ============================================================ */
+
+/* Element selector - footer */
+footer {
+    background-color: #002244;
+    color: #cccccc;
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+
+/* Class selector - flexbox layout for footer */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Class selector - each column in footer */
+.footer-col {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Descendant selector - headings in footer */
+footer h4 {
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #335577;
+}
+
+/* Descendant selector - links in footer */
+footer a {
+    color: #aaccee;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+/* Hover on footer links */
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Class selector - footer bottom bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #335577;
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+/* Pseudo-element ::before on footer bottom */
+.footer-bottom::before {
+    content: "© ";
+}
+
+/* ============================================================
+   16. ABOUT PAGE - specific styles
+   ============================================================ */
+
+/* Class selector - vision/mission block */
+.vision-block {
+    background-color: #f8f9ff;
+    border-left: 4px solid #0055aa;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+}
+
+/* ============================================================
+   17. DISPLAY PROPERTY DEMONSTRATION
+   Using: block, inline, inline-block
+   ============================================================ */
+
+/* Class selector - shows inline-block behavior (used for tags/badges) */
+.badge {
+    display: inline-block;
+    background-color: #003366;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* Class selector - block display element (full-width info bar) */
+.info-bar {
+    display: block;
+    background-color: #eef2ff;
+    border: 1px solid #bbccee;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Class selector - inline display (used for small labels) */
+.text-inline {
+    display: inline;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* ============================================================
+   18. TEXT SHADOW and BOX SHADOW EFFECTS
+   ============================================================ */
+
+/* Class selector - page section heading with text shadow */
+.page-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #003366;
+}
+
+/* ============================================================
+   19. RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================================ */
+
+/* --- Tablet: screens up to 768px --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+
+    /* Stack nav links vertically */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        padding: 10px 12px;
+        width: 100%;
+    }
+
+    /* Events grid becomes 1 column */
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Highlights become vertical */
+    .highlights-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .highlight-card {
+        min-width: 200px;
+        width: 80%;
+    }
+
+    /* Contact flex stack */
+    .contact-flex {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+
+/* --- Mobile: screens up to 480px --- */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    header {
+        padding: 15px 10px;
+    }
+
+    .header-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .main-content {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    /* Form full width */
+    .form-container {
+        max-width: 100%;
+    }
+
+    /* Table scrollable on small screen */
+    .styled-table {
+        font-size: 12px;
+    }
+
+    .btn-submit,
+    .btn-reset {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* --- Desktop: screens 769px and above - default styles apply --- */
+@media (min-width: 769px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
