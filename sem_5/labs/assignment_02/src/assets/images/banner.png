@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200">
+  <rect width="800" height="200" fill="#1a237e"/>
+  <text x="50%" y="40%" font-size="36" fill="white" text-anchor="middle" dy=".3em" font-weight="bold">TechNova 2026</text>
+  <text x="50%" y="70%" font-size="18" fill="#90caf9" text-anchor="middle" dy=".3em">National Level Technical Symposium</text>
+</svg>
