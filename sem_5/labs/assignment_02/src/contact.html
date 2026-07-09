@@ -1,60 +1,25 @@
 <!DOCTYPE html>
-<!-- DOCTYPE — declares the HTML5 standard. Browser uses this to render the page correctly. -->
 
 <html lang="en">
-<!-- <html> — root element. All page content must be inside this. lang="en" helps search engines. -->
 
 <head>
-    <!-- <head> holds metadata and links — not visible to the user. -->
-
-    <!-- UTF-8 character encoding — ensures all text, symbols, and special characters display correctly. -->
     <meta charset="UTF-8">
-
-    <!-- Viewport — essential for responsive design on phones and tablets. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title shown in the browser tab. Should be unique and descriptive per page. -->
     <title>TechNova 2026 - Contact Us</title>
-
-    <!-- <link> connects the shared CSS file to this HTML page for styling. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<!-- <body> — everything visible on the screen goes inside this tag. -->
 
-    <!-- ============================================================
-         HEADER SECTION
-         <header> is a semantic HTML5 element for the site's top section.
-         Contains the logo image, site name (h1), and tagline (h3).
-         Repeated identically on all pages for a consistent visual identity.
-    ============================================================ -->
+    <!-- Header -->
     <header>
-        <!-- <img> — embeds an image on the page.
-             src = path to the image file (relative to this HTML file).
-             alt = text shown if the image fails to load; required for accessibility. -->
         <img src="assets/images/college_logo.png" alt="College Logo" class="header-logo">
-        <!-- <h1> — the most important heading on the page. Only ONE should exist per page. -->
         <h1>TechNova 2026</h1>
         <h3>National Level Technical Symposium</h3>
     </header>
 
-    <!-- ============================================================
-         NAVIGATION BAR
-         <nav> — semantic HTML5 element specifically for navigation links.
-         Tells search engines and screen readers that this is the navigation section.
-
-         ADVANCED CONCEPT — Flexbox:
-         CSS sets display:flex on the <nav> element — all <a> links automatically
-         align in a horizontal row. No need for floats or tables.
-         flex-wrap:wrap allows the links to wrap to the next line on small screens.
-
-         ADVANCED CONCEPT — Sticky Position:
-         position: sticky; top: 0; keeps the navbar visible at the top of the screen
-         even as the user scrolls down. z-index: 100 ensures it's on top of other content.
-    ============================================================ -->
+    <!-- Navigation -->
     <nav>
-        <!-- <span> is an inline element. Used here for the "Navigate:" label text. -->
         <span class="nav-label">Navigate:</span>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -62,51 +27,28 @@
         <a href="nontechnical.html">Non-Technical Events</a>
         <a href="schedule.html">Schedule</a>
         <a href="register.html">Register</a>
-        <!-- class="active-link" highlights this link to show it's the current page. -->
         <a href="contact.html" class="active-link">Contact Us</a>
     </nav>
 
-    <!-- ============================================================
-         MAIN CONTENT AREA
-         <div class="main-content"> wraps all visible page content.
-         CSS limits width to 960px and centers it with margin: 0 auto.
-    ============================================================ -->
     <div class="main-content">
 
-        <!-- ============================================================
-             PAGE HEADING SECTION
-             <section> — semantic HTML5 tag for grouping related content blocks.
-        ============================================================ -->
+        <!-- Contact Section -->
         <section class="section-block">
-            <!-- class="page-heading" applies text-shadow and a bold underline from CSS. -->
             <h2 class="page-heading">Contact Us</h2>
-            <!-- style="text-align: center;" — inline CSS applied directly to this element only. -->
             <p style="text-align: center;">For any queries regarding TechNova 2026, feel free to reach out to us.</p>
         </section>
 
-        <!-- ============================================================
-             COORDINATORS SECTION
-             ADVANCED CONCEPT — Flexbox for Contact Layout:
-             <div class="contact-flex"> uses display:flex in CSS.
-             The 3 contact blocks (Faculty, Student 1, Student 2) sit side by side.
-             flex-wrap:wrap ensures they stack vertically on small screens.
-             Each contact-block has flex:1 and min-width:220px so they share space equally.
-        ============================================================ -->
+        <!-- Contact Information -->
         <section class="section-block">
-            <!-- Flexbox container — child contact-block divs line up horizontally. -->
             <div class="contact-flex">
 
-                <!-- Faculty Coordinator contact block -->
                 <div class="contact-block">
-                    <!-- <h3> for the coordinator title inside each contact card. -->
                     <h3>Faculty Coordinator</h3>
-                    <!-- <b> makes text bold inline — used for field labels like "Name:", "Email:". -->
                     <p><b>Name:</b> Dr. R. Anitha</p>
                     <p><b>Email:</b> anitha.r@ssn.edu.in</p>
                     <p><b>Phone:</b> +91 98765 43210</p>
                 </div>
 
-                <!-- Student Coordinator 1 block -->
                 <div class="contact-block">
                     <h3>Student Coordinator 1</h3>
                     <p><b>Name:</b> Rahul Kumar</p>
@@ -114,7 +56,6 @@
                     <p><b>Phone:</b> +91 91234 56789</p>
                 </div>
 
-                <!-- Student Coordinator 2 block -->
                 <div class="contact-block">
                     <h3>Student Coordinator 2</h3>
                     <p><b>Name:</b> Priya Sharma</p>
@@ -123,24 +64,12 @@
                 </div>
 
             </div>
-            <!-- End of .contact-flex — Flexbox container ends here. -->
         </section>
 
-        <!-- ============================================================
-             VENUE DETAILS SECTION
-             style="border-bottom: none;" — inline CSS that removes the bottom border
-             on the last section so the page ends cleanly without an extra line.
-
-             <div class="info-bar"> — creates a styled highlighted box for address info.
-             <br> — a self-closing tag that creates a line break inside text (not a new paragraph).
-             Use <br> only when a line break is part of the content (like an address).
-             For regular paragraph spacing, always use <p> tags instead.
-        ============================================================ -->
+        <!-- Venue Address -->
         <section class="section-block" style="border-bottom: none;">
             <h3>Venue Address</h3>
-            <!-- info-bar creates a styled block with a light background and border — for highlighted content. -->
             <div class="info-bar">
-                <!-- <br> — inline line break. Used here because an address needs forced line breaks. -->
                 SSN College of Engineering<br>
                 (Sri Sivasubramaniya Nadar College of Engineering)<br>
                 Rajiv Gandhi Salai (OMR), Kalavakkam,<br>
@@ -148,36 +77,16 @@
                 Tamil Nadu, India.
             </div>
 
-            <!-- style="margin-top: 20px;" — inline style adds spacing above this heading. -->
             <h3 style="margin-top: 20px;">College Location</h3>
-
-            <!-- Image of the college location map.
-                 class="map-img" makes it responsive (width: 100%, max-width: 500px).
-                 Box shadow is added via CSS for a subtle depth effect. -->
             <img src="assets/images/college_map.png" alt="College Location Map" class="map-img">
         </section>
 
     </div>
-    <!-- End of .main-content -->
 
-    <!-- ============================================================
-         FOOTER SECTION
-         <footer> is a semantic HTML5 tag for the bottom of the page.
-         Provides navigation links, contact info, and social media.
-
-         ADVANCED CONCEPT — Flexbox:
-         .footer-content uses display:flex — the 3 footer-col divs sit side by side.
-         justify-content: space-between spreads them evenly across the full width.
-
-         ADVANCED CONCEPT — Pseudo-element (::before):
-         The CSS rule .footer-bottom::before { content: "© "; } automatically injects
-         the © symbol before the copyright text — completely handled by CSS, not HTML.
-    ============================================================ -->
+    <!-- Footer -->
     <footer>
-        <!-- Flexbox container for 3 footer columns. -->
         <div class="footer-content">
 
-            <!-- Footer column 1: Organization address and email -->
             <div class="footer-col">
                 <h4>TechNova 2026</h4>
                 <p>SSN College of Engineering</p>
@@ -185,7 +94,6 @@
                 <p>technova2026@ssn.edu.in</p>
             </div>
 
-            <!-- Footer column 2: Quick page navigation links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
@@ -195,7 +103,6 @@
                 <a href="register.html">Register</a>
             </div>
 
-            <!-- Footer column 3: Social media links (href="#" = placeholder) -->
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <a href="#">Instagram - @TechNova2026</a>
@@ -205,8 +112,6 @@
 
         </div>
 
-        <!-- The © symbol before the text is added by the CSS ::before pseudo-element.
-             This is a great example of CSS doing content work without touching HTML. -->
         <div class="footer-bottom">
             2026 TechNova | SSN College of Engineering. All Rights Reserved.
         </div>
@@ -215,54 +120,3 @@
 </body>
 
 </html>
-
-<!--
-==============================================================
-  LEARNING SUMMARY — contact.html (Contact Us Page)
-==============================================================
-
-HTML TAGS USED AND WHY:
-
-  <!DOCTYPE html>  — HTML5 declaration.
-  <html lang="en"> — Root element.
-  <head>           — Metadata section (not visible).
-  <meta charset>   — UTF-8 character encoding.
-  <meta viewport>  — Responsive layout for all screen sizes.
-  <title>          — Browser tab title.
-  <link>           — Links the external CSS stylesheet.
-  <body>           — All visible content.
-  <header>         — Semantic top section (logo, title, tagline).
-  <img>            — College logo (alt text for accessibility).
-                     College map image (map-img class, responsive).
-  <h1>             — Main page heading (one per page).
-  <h2>             — Section heading (Contact Us).
-  <h3>             — Sub-headings (Faculty Coordinator, Venue Address, etc.).
-  <h4>             — Footer column headings.
-  <nav>            — Semantic navigation menu.
-  <a href>         — Navigation links.
-  <span>           — Inline styling element (nav-label).
-  <div>            — Block containers (main-content, contact-flex,
-                     contact-block, info-bar, footer-col).
-  <section>        — Groups related content logically.
-  <p>              — Paragraph text (contact details, intro text).
-  <b>              — Bold inline text (field labels: Name, Email, Phone).
-  <br>             — Inline line break (used in address block).
-  <footer>         — Semantic page bottom section.
-
-CSS CONCEPTS DEMONSTRATED ON THIS PAGE:
-
-  - Flexbox (.contact-flex — 3 contact blocks side by side)
-  - Flexbox (.footer-content — 3 footer columns side by side)
-  - flex-wrap:wrap (contact blocks and footer columns stack on mobile)
-  - flex:1 + min-width (each block gets equal share of space)
-  - Sticky position (nav stays at top when scrolling)
-  - Hover pseudo-class (nav a:hover, footer a:hover)
-  - Transition (smooth color change on hover)
-  - Box Shadow (.map-img — subtle shadow around the map image)
-  - Border-left (.contact-block h3 — bottom border under contact card headings)
-  - Pseudo-element ::before (.footer-bottom — adds © before copyright text)
-  - Responsive media query (.contact-flex becomes column on mobile)
-  - display: block (map-img centers itself with margin: auto)
-
-==============================================================
--->
