@@ -3,51 +3,104 @@
    SSN College of Engineering
    Department of Computer Science and Engineering
    Web Development Lab - Assignment 02
+   ============================================================
+
+   HOW THIS FILE IS ORGANIZED:
+   1.  Global Reset and Box Model
+   2.  Typography (Text Styles)
+   3.  Header
+   4.  Navigation Bar (Sticky, Flexbox, Hover)
+   5.  Banner Image
+   6.  Main Content Area
+   7.  Section Styling (ID and Class Selectors)
+   8.  Highlights Section (Flexbox, Hover, Transform)
+   9.  Events Grid (CSS Grid)
+   10. Tables (Borders, nth-child, Hover)
+   11. Registration Form (Inputs, Focus, Transitions)
+   12. Contact Page (Flexbox)
+   13. Lists
+   14. Horizontal Rule
+   15. Footer (Flexbox, Pseudo-element, Text Shadow)
+   16. About Page Styles
+   17. Display Property Demonstration (block, inline, inline-block)
+   18. Text Shadow and Box Shadow Effects
+   19. Responsive Design - Media Queries
+   CSS Revision Sheet (at the end)
    ============================================================ */
+
 
 /* ============================================================
    1. GLOBAL RESET AND BOX MODEL
-   Using: box-sizing, margin, padding, element selector
+   ============================================================
+
+   SELECTOR: * (Universal Selector)
+   The asterisk * selects EVERY single element on the page.
+   It is used here to apply a CSS reset — removing default browser styles.
+
+   ADVANCED CONCEPT — Box Model:
+   Every HTML element is a "box" in CSS. The box has 4 layers (from inside out):
+     Content → Padding → Border → Margin
+
+   box-sizing: border-box — changes how width/height are calculated.
+   WITHOUT it (default): width = content only. Padding and border are added on top.
+   WITH it:              width = content + padding + border (all included inside).
+   Example: A box with width:200px and padding:20px stays at 200px total width.
+
+   margin: 0; padding: 0; — removes all default spacing added by browsers.
+   (Different browsers add different defaults — this reset makes it consistent.)
    ============================================================ */
 
-/* Element selector - applies to everything on the page */
+/* Universal selector — applies to ALL elements on the page */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* Element selector - base body styles */
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    background-color: #f5f5f5;
-    color: #222222;
-    line-height: 1.6;
+    box-sizing: border-box; /* Width and height include padding and border */
+    margin: 0;              /* Remove default outer spacing */
+    padding: 0;             /* Remove default inner spacing */
 }
 
 /* ============================================================
+   SELECTOR: body (Element Selector)
+   The element selector targets HTML tags directly (no . or #).
+   Styles set on <body> are inherited by most child elements.
+   ============================================================ */
+
+/* Element selector — base styles for the entire page */
+body {
+    font-family: Arial, sans-serif; /* Primary font; "sans-serif" is the fallback if Arial is unavailable */
+    font-size: 16px;                /* Base text size — other sizes use this as reference */
+    background-color: #f5f5f5;     /* Light gray page background */
+    color: #222222;                 /* Dark gray text color for good readability */
+    line-height: 1.6;               /* 1.6x the font size between lines — improves readability */
+}
+
+
+/* ============================================================
    2. TYPOGRAPHY
-   Using: font-family, font-size, font-weight, text-align,
-          text-transform, letter-spacing
+   ============================================================
+
+   Typography means controlling how text looks: size, weight, alignment,
+   capitalization, spacing between letters, and color.
+
+   SELECTORS USED HERE: h1, h2, h3, h4, p — element selectors
+   These are element selectors — they apply styles to ALL instances
+   of that HTML tag on every page.
    ============================================================ */
 
 /* Element selectors for headings */
 h1 {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #003366;
+    font-size: 28px;          /* Size of the text */
+    font-weight: bold;        /* Bold text */
+    text-align: center;       /* Center the text horizontally */
+    text-transform: uppercase;/* Convert all letters to UPPERCASE */
+    letter-spacing: 2px;      /* Add 2px spacing between each letter */
+    color: #003366;           /* Dark blue color */
 }
 
 h2 {
     font-size: 22px;
     font-weight: bold;
     color: #003366;
-    margin-bottom: 10px;
-    text-transform: capitalize;
+    margin-bottom: 10px;       /* Space below the heading */
+    text-transform: capitalize;/* Capitalize the first letter of each word */
 }
 
 h3 {
@@ -65,388 +118,574 @@ h4 {
 }
 
 p {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Space below each paragraph */
 }
+
 
 /* ============================================================
    3. HEADER
-   Using: background-color, text-align, padding, flexbox
+   ============================================================
+
+   SELECTOR: header (Element Selector)
+   Targets the <header> HTML tag. Applies dark blue background
+   with white text and centered alignment.
+
+   SELECTOR: header h1 (Descendant Selector)
+   Targets h1 elements that are INSIDE a header element.
+   This overrides the global h1 color for the header specifically.
    ============================================================ */
 
-/* Element selector - header */
+/* Element selector — styles the site header */
 header {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
+    background-color: #003366; /* Dark navy blue background */
+    color: white;              /* White text (inherited by child elements) */
+    text-align: center;        /* Center all content in the header */
+    padding: 20px 10px;        /* 20px top/bottom, 10px left/right (inside spacing) */
 }
 
-/* Descendant selector - h1 inside header */
+/* Descendant selector — h1 that is inside the header */
 header h1 {
-    color: white;
+    color: white;         /* Override the global h1 dark blue with white */
     font-size: 30px;
     letter-spacing: 3px;
 }
 
-/* Descendant selector - h3 inside header */
+/* Descendant selector — h3 inside header (the tagline) */
 header h3 {
-    color: #ccddff;
+    color: #ccddff;       /* Light blue color for the tagline text */
     font-size: 16px;
-    font-weight: normal;
+    font-weight: normal;  /* Normal weight (not bold) for the subtitle */
     letter-spacing: 1px;
     margin-top: 5px;
 }
 
-/* Class selector - logo image in header */
+/* ============================================================
+   SELECTOR: .header-logo (Class Selector)
+   A class selector starts with a dot (.) and targets any element
+   with that class name in HTML: <img class="header-logo">
+
+   ADVANCED CONCEPT — Box Shadow:
+   box-shadow: x-offset y-offset blur-radius color
+   Creates a shadow effect around an element.
+   Example: 0 0 8px rgba(0,0,0,0.4) = centered shadow, 8px blur, 40% black opacity.
+
+   border-radius: 50% makes a perfect circle (50% rounds all corners equally).
+   ============================================================ */
+
+/* Class selector — logo image in header */
 .header-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid white;
-    display: block;
-    margin: 0 auto 10px auto;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    width: 80px;                           /* Fixed width of the logo */
+    height: 80px;                          /* Fixed height */
+    border-radius: 50%;                    /* 50% = perfect circle shape */
+    border: 3px solid white;              /* White circular border around the logo */
+    display: block;                        /* Block display so margin: auto can center it */
+    margin: 0 auto 10px auto;             /* Center horizontally; 10px below */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Shadow: no offset, 8px blur, 40% black */
 }
+
 
 /* ============================================================
    4. NAVIGATION BAR
-   Using: flexbox, sticky, hover, background-color, transition
+   ============================================================
+
+   ADVANCED CONCEPT — Flexbox:
+   display: flex turns the nav into a "flex container".
+   All direct child elements (<a> links and <span>) automatically
+   line up in a horizontal row.
+   align-items: center vertically centers items in the row.
+   flex-wrap: wrap allows items to wrap to the next line on small screens.
+
+   ADVANCED CONCEPT — Sticky Position:
+   position: sticky; top: 0; makes the nav stick to the top of the
+   viewport as the user scrolls. Unlike position: fixed, sticky still
+   occupies space in the layout (it doesn't overlay the content).
+   z-index: 100 ensures the nav bar appears ON TOP of all other content.
+
+   ADVANCED CONCEPT — Hover Pseudo-class:
+   nav a:hover is a pseudo-class. It applies styles ONLY when the user
+   hovers the mouse over a nav link.
+   Syntax: selector:pseudo-class { properties }
+
+   ADVANCED CONCEPT — Transition:
+   transition: background-color 0.3s, color 0.3s;
+   Makes property changes animate smoothly over 0.3 seconds.
+   Without transition, hover changes happen instantly (flash effect).
    ============================================================ */
 
-/* Element selector + sticky positioning */
+/* Element selector + sticky positioning + Flexbox */
 nav {
-    background-color: #004080;
+    background-color: #004080; /* Medium blue background */
     padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    position: sticky;          /* Stick to the top when scrolling */
+    top: 0;                    /* Stick at 0px from the top of the screen */
+    z-index: 100;              /* Layer order — 100 means it stays above other elements */
+    display: flex;             /* Flexbox: children align in a row */
+    align-items: center;       /* Vertically center items in the nav bar */
+    flex-wrap: wrap;           /* Links wrap to next line on small screens */
 }
 
-/* Class selector for nav label */
+/* Class selector — "Navigate:" label inside the nav bar */
 .nav-label {
     color: #ffffff;
     font-weight: bold;
-    padding: 12px 15px;
+    padding: 12px 15px;        /* Inner spacing — makes it clickable-area-friendly */
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    display: inline-block;
+    display: inline-block;     /* Allows padding without causing a new line */
 }
 
-/* Descendant selector - anchor tags inside nav */
+/* Descendant selector — all <a> tags inside <nav> */
 nav a {
-    color: #ccddff;
-    text-decoration: none;
-    padding: 12px 14px;
+    color: #ccddff;            /* Light blue link text */
+    text-decoration: none;     /* Removes the underline from links */
+    padding: 12px 14px;        /* Clickable area around each link */
     font-size: 14px;
-    display: inline-block;
+    display: inline-block;     /* Allows padding and width to be set */
+
+    /* ADVANCED CONCEPT — Transition:
+       When background-color or color changes (on hover), it animates over 0.3 seconds.
+       Without this, the hover change would happen instantly. */
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Hover selector - nav links on hover */
+/* ADVANCED CONCEPT — Hover Pseudo-class:
+   :hover applies styles ONLY when the mouse cursor is over the element.
+   The colon (:) introduces a pseudo-class in CSS. */
 nav a:hover {
-    background-color: #0066cc;
-    color: #ffffff;
+    background-color: #0066cc; /* Brighter blue on hover */
+    color: #ffffff;            /* White text on hover */
 }
 
-/* Class selector - active navigation link */
+/* Class selector — highlights the current page's nav link */
 .active-link {
-    background-color: #0055aa;
+    background-color: #0055aa; /* Slightly darker blue to show active state */
     color: #ffffff;
     font-weight: bold;
 }
 
+
 /* ============================================================
    5. BANNER IMAGE
-   Using: img, responsive width, box-shadow, display
+   ============================================================
+
+   SELECTOR: .banner-section and .banner-img (Class Selectors)
+
+   width: 100% — makes the banner fill the full width of its container.
+   max-width: 860px — prevents it from getting too wide on large screens.
+   height: auto — maintains the image's original aspect ratio automatically.
    ============================================================ */
 
-/* Class selector for banner */
+/* Class selector — banner section container */
 .banner-section {
     text-align: center;
     padding: 15px 0;
-    background-color: #e8eef5;
+    background-color: #e8eef5; /* Light blue-gray background behind the banner */
 }
 
-/* Class selector - banner image */
+/* Class selector — banner image (responsive) */
 .banner-img {
-    width: 100%;
-    max-width: 860px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: block;
-    margin: 0 auto;
+    width: 100%;              /* Full width of the parent container */
+    max-width: 860px;         /* Never wider than 860px */
+    height: auto;             /* Keeps image aspect ratio intact */
+    border-radius: 8px;       /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow: 4px down, 10px blur, 20% black */
+    display: block;           /* Needed for margin: auto centering to work */
+    margin: 0 auto;           /* Centers the image horizontally */
 }
+
 
 /* ============================================================
    6. MAIN CONTENT AREA
-   Using: padding, margin, background-color
+   ============================================================
+
+   SELECTOR: .main-content (Class Selector)
+
+   max-width: 960px — limits how wide the content gets on large screens.
+   margin: 20px auto — 20px top/bottom, auto left/right = centers the box horizontally.
+   This is a classic CSS centering trick: use display:block + margin: 0 auto.
    ============================================================ */
 
-/* Class selector - wraps main page content */
+/* Class selector — wraps main page content */
 .main-content {
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 6px;
+    max-width: 960px;         /* Content won't stretch past 960px wide */
+    margin: 20px auto;        /* 20px from top/bottom; centered left/right */
+    padding: 20px;            /* Inner spacing inside the content area */
+    background-color: #ffffff;/* White card background */
+    border: 1px solid #dddddd;/* Light gray border around the content card */
+    border-radius: 6px;       /* Slightly rounded corners */
 }
+
 
 /* ============================================================
    7. SECTION STYLING
+   ============================================================
+
+   SELECTOR TYPE 1 — Class Selector: .section-block
+   Applies to every <section class="section-block"> on all pages.
+
+   SELECTOR TYPE 2 — ID Selector: #symposium-overview
+   The # symbol means ID selector — targets the ONE element with that specific ID.
+   IDs must be unique — only ONE element per page should have a given ID.
+   Class selectors can be reused on many elements; ID selectors are for unique elements.
    ============================================================ */
 
-/* Class selector for page sections */
+/* Class selector — common style for page sections */
 .section-block {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 20px;              /* Space below each section */
+    padding-bottom: 15px;             /* Inner space at the bottom */
+    border-bottom: 1px solid #eeeeee; /* Light dividing line between sections */
 }
 
-/* ID selector - used on the overview section of home page */
+/* ID selector — used only once on the overview section in index.html
+   Note: #id is more specific than .class in CSS specificity rules. */
 #symposium-overview {
-    background-color: #f0f4ff;
-    border-left: 4px solid #003366;
+    background-color: #f0f4ff;        /* Light blue-purple background for emphasis */
+    border-left: 4px solid #003366;   /* Bold left accent line (dark blue) */
     padding: 15px;
     border-radius: 4px;
     margin-bottom: 20px;
 }
 
+
 /* ============================================================
    8. HIGHLIGHTS SECTION (FLEXBOX)
-   Using: display: flex, flex-wrap, justify-content
+   ============================================================
+
+   ADVANCED CONCEPT — Flexbox (Flexible Box Layout):
+   Flexbox is a CSS layout model designed for ONE dimension (row OR column).
+   When you set display:flex on a container, all its DIRECT children become
+   "flex items" and are arranged in a row (by default).
+
+   Key Flexbox Properties:
+   - display: flex        → Activates Flexbox on the container.
+   - flex-wrap: wrap      → Wraps items to next line if they don't fit.
+   - justify-content      → Controls horizontal alignment (center, space-between, etc.).
+   - gap                  → Space between flex items (row and column gap combined).
+   - flex: 1              → Each item takes equal share of the available space.
+
+   The highlight cards (.highlight-card) are flex items inside .highlights-container.
+
+   ADVANCED CONCEPT — Hover + Transform:
+   .highlight-card:hover uses transform: translateY(-4px) which moves the card
+   4px UPWARD when hovered. This creates a "lift" effect.
+   Combined with transition, it animates smoothly.
+
+   ADVANCED CONCEPT — Box Shadow:
+   box-shadow: 0 2px 6px rgba(0,0,0,0.2)
+   Syntax: horizontal-offset vertical-offset blur-radius color
+   rgba(0,0,0,0.2) = black with 20% opacity.
    ============================================================ */
 
-/* Class selector - highlights container, uses Flexbox */
+/* Class selector — Flexbox container for the 4 highlight cards */
 .highlights-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    display: flex;           /* Enable Flexbox layout */
+    flex-wrap: wrap;         /* Cards wrap to next line if screen is too narrow */
+    justify-content: center; /* Center cards horizontally */
+    gap: 15px;               /* 15px gap between each card (horizontal and vertical) */
     margin-top: 15px;
 }
 
-/* Class selector - each highlight card */
+/* Class selector — each statistic card (500+ participants, 15 events, etc.) */
 .highlight-card {
-    background-color: #003366;
+    background-color: #003366; /* Dark blue card background */
     color: white;
-    padding: 20px 25px;
+    padding: 20px 25px;        /* Inner spacing */
     text-align: center;
     border-radius: 6px;
-    min-width: 150px;
-    flex: 1;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    min-width: 150px;          /* Minimum card width before wrapping */
+    flex: 1;                   /* Each card stretches equally to fill available space */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow below card */
+
+    /* ADVANCED CONCEPT — Transition:
+       When transform or box-shadow changes (on hover), animate over 0.3 seconds. */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Hover effect on highlight cards */
+/* ADVANCED CONCEPT — Hover Pseudo-class + Transform:
+   transform: translateY(-4px) moves the card 4px upward (negative Y = up).
+   This creates a "floating/lifting" effect on hover. */
 .highlight-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);                /* Lift card 4px on hover */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
-/* Descendant selector - number inside card */
+/* Descendant selector — the large number inside the card (e.g., "500+") */
 .highlight-card .highlight-number {
     font-size: 26px;
     font-weight: bold;
-    display: block;
+    display: block; /* Puts the number on its own line (block = full width) */
 }
 
-/* Descendant selector - label inside card */
+/* Descendant selector — the label below the number (e.g., "Participants") */
 .highlight-card .highlight-label {
     font-size: 13px;
-    display: block;
+    display: block;           /* Label on its own line */
     margin-top: 5px;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
+
 /* ============================================================
    9. EVENTS GRID (CSS GRID)
-   Used for: Technical Events and Non-Technical Events
+   ============================================================
+
+   ADVANCED CONCEPT — CSS Grid Layout:
+   CSS Grid is a 2-dimensional layout system (rows AND columns simultaneously).
+   Unlike Flexbox (which works in one direction at a time), Grid gives full
+   control over both rows and columns at the same time.
+
+   display: grid                    → Activates Grid layout.
+   grid-template-columns: repeat(2, 1fr)
+     → Creates 2 equal columns.
+     → repeat(2, 1fr) = repeat 2 times, each 1 fraction of available space.
+     → So if the container is 900px wide, each column is 450px.
+   gap: 20px                        → Space between all grid items.
+
+   The 4 event cards are placed automatically into the grid:
+   - Cards 1 and 2 go into row 1, columns 1 and 2.
+   - Cards 3 and 4 go into row 2, columns 1 and 2.
+
+   On small screens, the media query changes this to 1 column.
    ============================================================ */
 
-/* Class selector - grid container for event cards */
+/* Class selector — CSS Grid container for event cards */
 .events-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: grid;                           /* Enable Grid layout */
+    grid-template-columns: repeat(2, 1fr);   /* 2 equal-width columns */
+    gap: 20px;                               /* 20px gap between grid items */
     margin-top: 15px;
 }
 
-/* Class selector - individual event card */
+/* Class selector — individual event card inside the grid */
 .event-card {
     background-color: #ffffff;
-    border: 1px solid #cccccc;
+    border: 1px solid #cccccc;         /* Light gray border */
     border-radius: 6px;
     padding: 15px;
+
+    /* ADVANCED CONCEPT — Box Shadow:
+       box-shadow: offset-x offset-y blur-radius color
+       This shadow creates a sense of depth (card appears raised above the page). */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* Transition for smooth hover animation */
     transition: box-shadow 0.3s;
 }
 
-/* Hover effect on event cards */
+/* ADVANCED CONCEPT — Hover Pseudo-class:
+   When the mouse is over any event card, the shadow gets deeper. */
 .event-card:hover {
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
 
-/* Class selector - event images */
+/* Class selector — event images inside event cards */
 .event-img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    width: 100%;                              /* Full width of the card */
+    max-width: 300px;                         /* But never wider than 300px */
+    height: auto;                             /* Maintain aspect ratio */
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     margin-bottom: 10px;
-    display: block;
-    opacity: 0.95;
+    display: block;                           /* Block so margin: auto works for centering */
+    opacity: 0.95;                            /* Slightly transparent by default */
+
+    /* ADVANCED CONCEPT — Transition:
+       Opacity changes smoothly over 0.3 seconds when hovered. */
     transition: opacity 0.3s;
 }
 
-/* Hover effect on event images */
+/* ADVANCED CONCEPT — Hover on images:
+   opacity goes from 0.95 to 1 (fully visible) when hovered.
+   This creates a subtle "reveal" or "brighten" effect. */
 .event-img:hover {
-    opacity: 1;
+    opacity: 1; /* Fully opaque on hover */
 }
+
 
 /* ============================================================
    10. TABLES
-   Used for: Schedule table and Prize tables
-   Using: borders, alternate row colors, hover effect,
-          header styling
+   ============================================================
+
+   Tables display data in rows and columns.
+   In this project, tables are used for the event schedule and prize lists.
+
+   border-collapse: collapse → Merges adjacent cell borders into one line.
+   Without it: each cell has its own border (double border effect).
+   With it: clean single-line borders between cells.
+
+   ADVANCED CONCEPT — :nth-child Pseudo-class:
+   tr:nth-child(odd)  → selects odd-numbered rows (1st, 3rd, 5th...).
+   tr:nth-child(even) → selects even-numbered rows (2nd, 4th, 6th...).
+   This creates "zebra striping" — alternating row background colors
+   which makes the table much easier to read.
+
+   ADVANCED CONCEPT — :hover Pseudo-class on rows:
+   tbody tr:hover → changes row background when the mouse moves over it.
    ============================================================ */
 
-/* Class selector - common table style */
+/* Class selector — common table style for schedule and prize tables */
 .styled-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%;                   /* Table stretches to full container width */
+    border-collapse: collapse;     /* Merge borders — no double lines between cells */
     margin-top: 10px;
     font-size: 14px;
 }
 
-/* Descendant selectors - table header and cells */
+/* Descendant selectors — all th and td inside styled-table */
 .styled-table th,
 .styled-table td {
-    border: 1px solid #aaaaaa;
-    padding: 10px 12px;
-    text-align: left;
+    border: 1px solid #aaaaaa;    /* Border around each cell */
+    padding: 10px 12px;           /* Inner spacing inside each cell */
+    text-align: left;             /* Left-align cell content */
 }
 
-/* Descendant selector - table header row */
+/* Descendant selector — header row cells */
 .styled-table thead th {
-    background-color: #003366;
-    color: #ffffff;
+    background-color: #003366;    /* Dark blue header background */
+    color: #ffffff;               /* White header text */
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: uppercase;    /* Uppercase column labels */
     letter-spacing: 1px;
     font-size: 13px;
 }
 
-/* Alternate row color - odd rows */
+/* ADVANCED CONCEPT — :nth-child Pseudo-class (zebra striping):
+   Odd rows (1st, 3rd, 5th...) get a light blue background. */
 .styled-table tbody tr:nth-child(odd) {
     background-color: #f5f8ff;
 }
 
-/* Alternate row color - even rows */
+/* Even rows (2nd, 4th, 6th...) stay white. */
 .styled-table tbody tr:nth-child(even) {
     background-color: #ffffff;
 }
 
-/* Hover effect on table rows */
+/* ADVANCED CONCEPT — :hover on table rows:
+   When the user moves their mouse over a row, the background highlights. */
 .styled-table tbody tr:hover {
-    background-color: #ddeeff;
+    background-color: #ddeeff; /* Light blue highlight on hover */
 }
+
 
 /* ============================================================
    11. REGISTRATION FORM
-   Using: labels, inputs, select, textarea, buttons,
-          focus effect
+   ============================================================
+
+   Forms collect user input and send it to a server (or handle it with JavaScript).
+
+   KEY FORM CONCEPTS:
+   - label       → Text label for an input. for="id" links it to input's id.
+   - input       → Single-line text field, email field, phone, submit button, etc.
+   - select      → Dropdown list.
+   - textarea    → Multi-line text area.
+
+   ADVANCED CONCEPT — Attribute Selector:
+   input[type="text"] targets only <input> elements whose type attribute = "text".
+   This is an attribute selector — more specific than just "input".
+
+   ADVANCED CONCEPT — :focus Pseudo-class:
+   :focus applies styles when an element is focused (clicked on or tabbed to).
+   Here it changes the border color and adds a glow (box-shadow) to the active input.
+   This gives users clear visual feedback about which field they are editing.
+
+   ADVANCED CONCEPT — Transition on Forms:
+   transition: border-color 0.3s, box-shadow 0.3s;
+   Makes the focus effect (border color + glow) animate smoothly, not flash.
+
+   ADVANCED CONCEPT — Hover + Transform on Buttons:
+   .btn-submit:hover uses transform: scale(1.03) to make the button
+   slightly larger on hover — giving a satisfying click-ready feedback.
    ============================================================ */
 
-/* Class selector - form container */
+/* Class selector — form outer container */
 .form-container {
-    max-width: 600px;
+    max-width: 600px; /* Form never wider than 600px */
 }
 
-/* Class selector - form group wraps each label + input pair */
+/* Class selector — each label + input pair wrapper */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Space below each form field group */
 }
 
-/* Descendant selector - labels inside form */
+/* Descendant selector — labels inside the form container */
 .form-container label {
-    display: block;
+    display: block;        /* Label on its own line (above the input) */
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 5px;    /* Small gap between label and input */
     font-size: 14px;
     color: #333333;
 }
 
-/* Descendant selectors - inputs, select, textarea inside form */
+/* ADVANCED CONCEPT — Attribute Selectors:
+   These target specific input types, plus <select> and <textarea>.
+   All get the same consistent styling. */
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container input[type="tel"],
 .form-container select,
 .form-container textarea {
-    display: block;
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #aaaaaa;
+    display: block;              /* Each field takes the full row width */
+    width: 100%;                 /* Full width of the form container */
+    padding: 8px 10px;           /* Inner spacing */
+    border: 1px solid #aaaaaa;  /* Gray border */
     border-radius: 4px;
     font-size: 14px;
     font-family: Arial, sans-serif;
-    background-color: #fafafa;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fafafa;  /* Very light gray background */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth focus animation */
 }
 
-/* Focus effect on form inputs */
+/* ADVANCED CONCEPT — :focus Pseudo-class:
+   Applied when the user clicks on or tabs into an input field.
+   outline: none removes the default browser focus outline (we replace it with our own). */
 .form-container input:focus,
 .form-container select:focus,
 .form-container textarea:focus {
-    outline: none;
-    border-color: #003366;
-    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
-    background-color: #ffffff;
+    outline: none;                                   /* Remove default browser outline */
+    border-color: #003366;                           /* Blue border on focused input */
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);     /* Soft blue glow around focused field */
+    background-color: #ffffff;                       /* White background when focused */
 }
 
-/* Class selector - form section heading */
+/* Class selector — heading for each form section (Personal Info, Contact Info, etc.) */
 .form-section-title {
     font-size: 16px;
     font-weight: bold;
     color: #003366;
-    border-bottom: 2px solid #003366;
+    border-bottom: 2px solid #003366;  /* Blue underline under each form group title */
     padding-bottom: 5px;
-    margin: 20px 0 12px 0;
+    margin: 20px 0 12px 0;            /* Shorthand: top right bottom left */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Class selector - submit button */
+/* Class selector — submit button */
 .btn-submit {
     background-color: #003366;
     color: #ffffff;
     padding: 10px 22px;
-    border: none;
+    border: none;                  /* Remove default button border */
     border-radius: 4px;
     font-size: 15px;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;               /* Changes mouse to hand pointer on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover animation */
     display: inline-block;
 }
 
-/* Hover effect on submit button */
+/* ADVANCED CONCEPT — Hover + Transform on Submit Button:
+   transform: scale(1.03) scales the button to 103% of its size on hover.
+   Combined with transition, this creates a satisfying "click-ready" effect. */
 .btn-submit:hover {
-    background-color: #0055aa;
-    transform: scale(1.03);
+    background-color: #0055aa;  /* Lighter blue on hover */
+    transform: scale(1.03);     /* Slightly enlarge the button on hover */
 }
 
-/* Class selector - reset button */
+/* Class selector — reset button */
 .btn-reset {
-    background-color: #888888;
+    background-color: #888888; /* Gray background */
     color: #ffffff;
     padding: 10px 22px;
     border: none;
@@ -456,113 +695,144 @@ nav a:hover {
     cursor: pointer;
     transition: background-color 0.3s;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 10px;          /* Space between submit and reset buttons */
 }
 
-/* Hover effect on reset button */
+/* Hover effect on reset button — darker gray on hover */
 .btn-reset:hover {
     background-color: #555555;
 }
 
+
 /* ============================================================
    12. CONTACT PAGE (FLEXBOX)
-   Using: flexbox layout for the contact info section
+   ============================================================
+
+   The contact page uses Flexbox to display 3 coordinator cards side by side.
+   .contact-flex is the Flexbox container.
+   .contact-block is each individual coordinator card (a flex item).
+
+   flex: 1 — each card stretches equally to share available width.
+   min-width: 220px — card doesn't shrink smaller than 220px before wrapping.
    ============================================================ */
 
-/* Class selector - flex container for contact details */
+/* Class selector — Flexbox container for contact cards */
 .contact-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex;     /* Flexbox: children align in a row */
+    flex-wrap: wrap;   /* Cards wrap to next line if screen is too narrow */
+    gap: 20px;         /* 20px space between each card */
     margin-top: 15px;
 }
 
-/* Class selector - each contact info block */
+/* Class selector — each individual contact card */
 .contact-block {
-    flex: 1;
-    min-width: 220px;
-    background-color: #f0f4ff;
+    flex: 1;                        /* Each card takes equal share of width */
+    min-width: 220px;               /* Minimum card width before wrapping to next line */
+    background-color: #f0f4ff;     /* Light blue background */
     border: 1px solid #cccccc;
     border-radius: 6px;
     padding: 15px;
 }
 
-/* Descendant selector - headings inside contact block */
+/* Descendant selector — h3 headings inside contact blocks */
 .contact-block h3 {
     color: #003366;
     margin-bottom: 8px;
-    border-bottom: 1px solid #aabbcc;
+    border-bottom: 1px solid #aabbcc; /* Thin line below the coordinator name */
     padding-bottom: 5px;
 }
 
-/* Class selector - location image */
+/* Class selector — location map image */
 .map-img {
     width: 100%;
-    max-width: 500px;
-    height: auto;
+    max-width: 500px;   /* Map image doesn't exceed 500px width */
+    height: auto;       /* Maintain aspect ratio */
     border-radius: 6px;
     border: 2px solid #cccccc;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    display: block;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow around map */
+    display: block;     /* Block so margin: auto centering works */
     margin-top: 10px;
 }
 
+
 /* ============================================================
    13. LISTS
-   Using: margin, padding, list-style
+   ============================================================
+
+   <ul> is unordered (bullet) list. <ol> is ordered (numbered) list.
+   margin-left pushes list items to the right so bullets/numbers are visible.
    ============================================================ */
 
 /* Element selectors for lists */
 ul, ol {
-    margin-left: 20px;
+    margin-left: 20px;  /* Indent list so bullet points are visible */
     margin-bottom: 10px;
 }
 
 li {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Space between list items */
 }
+
 
 /* ============================================================
    14. HORIZONTAL RULE
+   ============================================================
+
+   <hr> draws a horizontal dividing line.
+   By default it has a solid border. Here we remove the default border
+   and add our own top border for a cleaner, thinner line.
    ============================================================ */
 
 hr {
-    border: none;
-    border-top: 1px solid #cccccc;
+    border: none;                      /* Remove default browser border */
+    border-top: 1px solid #cccccc;   /* Add our own thin gray top border */
     margin: 15px 0;
 }
 
+
 /* ============================================================
    15. FOOTER (FLEXBOX)
-   Using: flexbox, background-color, padding, text-align,
-          pseudo-element, text-shadow
+   ============================================================
+
+   The footer uses Flexbox to display 3 columns side by side.
+
+   ADVANCED CONCEPT — Pseudo-element ::before:
+   A pseudo-element creates a virtual element before (::before) or after (::after)
+   an element's content — without adding any HTML.
+   .footer-bottom::before { content: "© "; } automatically inserts the © symbol
+   before the copyright text. This is a common technique used in real websites.
+
+   ADVANCED CONCEPT — Text Shadow:
+   .page-heading uses text-shadow: x-offset y-offset blur color
+   This creates a subtle shadow behind the text, giving it a slight 3D effect.
+   It's in section 18 but the heading selector is listed there.
    ============================================================ */
 
-/* Element selector - footer */
+/* Element selector — page footer */
 footer {
-    background-color: #002244;
-    color: #cccccc;
+    background-color: #002244; /* Very dark navy */
+    color: #cccccc;            /* Light gray text */
     padding: 25px 20px;
     margin-top: 30px;
 }
 
-/* Class selector - flexbox layout for footer */
+/* Class selector — Flexbox container for 3 footer columns */
 .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: flex;                  /* Enable Flexbox */
+    flex-wrap: wrap;                /* Stack columns on small screens */
+    justify-content: space-between; /* Spread columns evenly across width */
     gap: 20px;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0 auto;                 /* Center the footer content */
 }
 
-/* Class selector - each column in footer */
+/* Class selector — each column inside the footer */
 .footer-col {
-    flex: 1;
-    min-width: 180px;
+    flex: 1;           /* Each column takes equal share of available width */
+    min-width: 180px;  /* Columns don't shrink below 180px */
 }
 
-/* Descendant selector - headings in footer */
+/* Descendant selector — h4 headings inside footer */
 footer h4 {
     color: #ffffff;
     font-size: 14px;
@@ -570,73 +840,94 @@ footer h4 {
     letter-spacing: 1px;
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #335577;
+    border-bottom: 1px solid #335577; /* Subtle divider below column heading */
 }
 
-/* Descendant selector - links in footer */
+/* Descendant selector — all links inside footer */
 footer a {
-    color: #aaccee;
-    text-decoration: none;
-    display: block;
+    color: #aaccee;            /* Light blue links */
+    text-decoration: none;     /* No underline */
+    display: block;            /* Each link on its own line */
     margin-bottom: 5px;
     font-size: 13px;
-    transition: color 0.3s;
+    transition: color 0.3s;   /* Smooth color change on hover */
 }
 
-/* Hover on footer links */
+/* Hover on footer links — turns white on hover */
 footer a:hover {
     color: #ffffff;
 }
 
-/* Class selector - footer bottom bar */
+/* Class selector — footer bottom bar (copyright line) */
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid #335577;
+    border-top: 1px solid #335577; /* Dividing line above copyright */
     font-size: 13px;
     color: #aaaaaa;
 }
 
-/* Pseudo-element ::before on footer bottom */
+/* ADVANCED CONCEPT — Pseudo-element ::before:
+   ::before creates a "ghost" element before the content of .footer-bottom.
+   content: "© " inserts the copyright symbol automatically.
+   No need to type © in the HTML file — CSS handles it.
+   This is also how you can add icons, decorations, or text without modifying HTML. */
 .footer-bottom::before {
-    content: "© ";
+    content: "© "; /* Inserts © symbol before the copyright text */
 }
+
 
 /* ============================================================
-   16. ABOUT PAGE - specific styles
+   16. ABOUT PAGE - SPECIFIC STYLES
+   ============================================================
+
+   .vision-block creates a styled left-accent box for vision and mission text.
+   border-left: 4px solid #0055aa creates a bold blue vertical line on the left side.
+   This is a common design pattern for blockquotes or highlighted information.
    ============================================================ */
 
-/* Class selector - vision/mission block */
+/* Class selector — vision and mission text block */
 .vision-block {
-    background-color: #f8f9ff;
-    border-left: 4px solid #0055aa;
+    background-color: #f8f9ff;       /* Very light lavender background */
+    border-left: 4px solid #0055aa; /* Bold blue left accent line */
     padding: 12px 15px;
     margin-bottom: 12px;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;     /* Round only right corners; left is flush with the border */
 }
+
 
 /* ============================================================
    17. DISPLAY PROPERTY DEMONSTRATION
-   Using: block, inline, inline-block
+   ============================================================
+
+   CSS has three main display values for inline-level elements:
+   - display: block       → Element takes FULL width. Starts on a new line.
+   - display: inline      → Element takes ONLY as much width as content. No new line.
+   - display: inline-block → Like inline (sits next to text) BUT can have padding and size.
+
+   EXAMPLES IN THIS PROJECT:
+   .badge        → display: inline-block (sits next to list text, but has own padding)
+   .info-bar     → display: block (full-width box, like a <div>)
+   .text-inline  → display: inline (sits inside text, like <span> naturally does)
    ============================================================ */
 
-/* Class selector - shows inline-block behavior (used for tags/badges) */
+/* Class selector — pill-shaped label/badge (inline-block example) */
 .badge {
-    display: inline-block;
+    display: inline-block;         /* Sits inline with text, but accepts padding/radius */
     background-color: #003366;
     color: white;
-    padding: 3px 10px;
-    border-radius: 12px;
+    padding: 3px 10px;             /* Inner spacing creates the pill shape */
+    border-radius: 12px;           /* Rounded pill shape */
     font-size: 12px;
     font-weight: bold;
     margin-right: 5px;
     letter-spacing: 0.5px;
 }
 
-/* Class selector - block display element (full-width info bar) */
+/* Class selector — full-width info box (block display example) */
 .info-bar {
-    display: block;
+    display: block;                 /* Full-width block like a div */
     background-color: #eef2ff;
     border: 1px solid #bbccee;
     padding: 10px 15px;
@@ -645,37 +936,78 @@ footer a:hover {
     font-size: 14px;
 }
 
-/* Class selector - inline display (used for small labels) */
+/* Class selector — inline label (inline display example) */
 .text-inline {
-    display: inline;
+    display: inline;               /* Sits inside text without a line break */
     font-weight: bold;
     color: #003366;
 }
 
+
 /* ============================================================
-   18. TEXT SHADOW and BOX SHADOW EFFECTS
+   18. TEXT SHADOW AND BOX SHADOW EFFECTS
+   ============================================================
+
+   ADVANCED CONCEPT — Text Shadow:
+   text-shadow: horizontal-offset vertical-offset blur-radius color
+   Creates a shadow behind text characters.
+   Example: 1px 1px 3px rgba(0,0,0,0.15)
+     = 1px right, 1px down, 3px blur, black at 15% opacity.
+
+   ADVANCED CONCEPT — Box Shadow:
+   box-shadow: horizontal-offset vertical-offset blur-radius color
+   Creates a shadow around an element's box (like a card shadow).
    ============================================================ */
 
-/* Class selector - page section heading with text shadow */
+/* Class selector — page-level section heading with text shadow */
 .page-heading {
     font-size: 24px;
     font-weight: bold;
     color: #003366;
     text-align: center;
+
+    /* ADVANCED CONCEPT — Text Shadow:
+       1px right, 1px down, 3px blur, 15% black opacity.
+       The shadow is very subtle — gives a slight 3D look to the heading. */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #003366;
+    border-bottom: 2px solid #003366; /* Bold blue underline below page headings */
 }
+
 
 /* ============================================================
    19. RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================================
+
+   ADVANCED CONCEPT — Media Queries:
+   Media queries make the website RESPONSIVE — it changes layout
+   based on the screen size (desktop, tablet, or mobile phone).
+
+   Syntax:
+   @media (max-width: 768px) {
+       /* These rules ONLY apply when the screen is 768px wide or less */
+   }
+
+   max-width: 768px  → Targets tablets and smaller screens.
+   max-width: 480px  → Targets mobile phones specifically.
+   min-width: 769px  → Targets desktops (large screens).
+
+   WHY USE MEDIA QUERIES?
+   A desktop layout (e.g., 2-column grid, horizontal nav) looks bad on a phone.
+   Media queries let us change the layout for small screens:
+   - Nav links stack vertically.
+   - Grid changes from 2 columns to 1 column.
+   - Flexbox rows become columns.
+   - Font sizes reduce slightly.
+   This is called "Mobile Responsive Design" — a critical skill in modern web dev.
    ============================================================ */
 
-/* --- Tablet: screens up to 768px --- */
+/* --- Tablet and below: screens 768px wide or LESS --- */
 @media (max-width: 768px) {
     body {
-        font-size: 15px;
+        font-size: 15px; /* Slightly smaller text on tablets */
     }
 
     h1 {
@@ -683,48 +1015,48 @@ footer a:hover {
         letter-spacing: 1px;
     }
 
-    /* Stack nav links vertically */
+    /* Stack nav links vertically on small screens */
     nav {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column;    /* Override Flexbox row → stack vertically */
+        align-items: flex-start;   /* Align links to the left */
     }
 
     nav a {
         padding: 10px 12px;
-        width: 100%;
+        width: 100%; /* Each nav link takes full width (easy to tap on mobile) */
     }
 
-    /* Events grid becomes 1 column */
+    /* Events grid: 2 columns → 1 column on tablet/mobile */
     .events-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column — 1fr = full width */
     }
 
-    /* Highlights become vertical */
+    /* Highlights cards: row → vertical stack */
     .highlights-container {
-        flex-direction: column;
+        flex-direction: column; /* Override Flexbox row → stack vertically */
         align-items: center;
     }
 
     .highlight-card {
         min-width: 200px;
-        width: 80%;
+        width: 80%; /* Cards don't stretch full width */
     }
 
-    /* Contact flex stack */
+    /* Contact flex: row → column (cards stack vertically) */
     .contact-flex {
         flex-direction: column;
     }
 
     .main-content {
-        margin: 10px;
+        margin: 10px;  /* Smaller margin on tablet */
         padding: 15px;
     }
 }
 
-/* --- Mobile: screens up to 480px --- */
+/* --- Mobile phones: screens 480px wide or LESS --- */
 @media (max-width: 480px) {
     body {
-        font-size: 14px;
+        font-size: 14px; /* Even smaller text on phones */
     }
 
     h1 {
@@ -740,7 +1072,7 @@ footer a:hover {
     }
 
     .header-logo {
-        width: 60px;
+        width: 60px;  /* Smaller logo on phones */
         height: 60px;
     }
 
@@ -749,30 +1081,149 @@ footer a:hover {
         padding: 10px;
     }
 
+    /* Footer columns stack vertically on mobile */
     .footer-content {
-        flex-direction: column;
+        flex-direction: column; /* Stack 3 footer columns vertically */
     }
 
-    /* Form full width */
+    /* Form takes full width on mobile */
     .form-container {
         max-width: 100%;
     }
 
-    /* Table scrollable on small screen */
+    /* Table font slightly smaller on mobile */
     .styled-table {
         font-size: 12px;
     }
 
+    /* Buttons stack vertically on mobile */
     .btn-submit,
     .btn-reset {
-        width: 100%;
+        width: 100%;    /* Full-width buttons on phone */
         margin: 5px 0;
     }
 }
 
-/* --- Desktop: screens 769px and above - default styles apply --- */
+/* --- Desktop: screens 769px wide or MORE (default styles apply) --- */
 @media (min-width: 769px) {
+    /* On desktop, events grid is always 2 columns */
     .events-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
+/* ============================================================
+   CSS REVISION SHEET
+   ============================================================
+
+   A QUICK REFERENCE SUMMARY FOR LAB EXAM AND VIVA
+
+   ────────────────────────────────────────────
+   SELECTORS USED IN THIS FILE:
+   ────────────────────────────────────────────
+   *             → Universal selector (selects ALL elements)
+   body, h1, nav → Element selectors (target HTML tags directly)
+   .class-name   → Class selector (reusable, used with class="")
+   #id-name      → ID selector (unique per page, used with id="")
+   nav a         → Descendant selector (targets a inside nav)
+   input[type]   → Attribute selector (targets by attribute value)
+   :hover        → Pseudo-class (applies on mouse hover)
+   :focus        → Pseudo-class (applies when element is clicked/tabbed)
+   :nth-child()  → Pseudo-class (targets elements by position)
+   ::before      → Pseudo-element (inserts virtual content before element)
+
+   ────────────────────────────────────────────
+   BOX MODEL:
+   ────────────────────────────────────────────
+   Every element is a box with 4 layers:
+   Content > Padding > Border > Margin
+   box-sizing: border-box → Width includes padding + border (consistent sizing)
+
+   ────────────────────────────────────────────
+   TYPOGRAPHY:
+   ────────────────────────────────────────────
+   font-family    → Sets the font (Arial, sans-serif)
+   font-size      → Text size (px, em, rem, %)
+   font-weight    → Boldness (normal, bold, 100-900)
+   text-align     → Alignment (left, center, right)
+   text-transform → Case (uppercase, capitalize, lowercase)
+   letter-spacing → Space between characters
+   line-height    → Space between lines of text
+   text-shadow    → Shadow behind text characters
+
+   ────────────────────────────────────────────
+   FLEXBOX (display: flex):
+   ────────────────────────────────────────────
+   Used for: nav, highlights-container, footer-content, contact-flex
+   display: flex           → Enable Flexbox on container
+   flex-direction          → row (default) or column
+   justify-content         → Horizontal alignment (center, space-between)
+   align-items             → Vertical alignment (center, flex-start)
+   flex-wrap               → Wrap items to next line if needed
+   gap                     → Space between flex items
+   flex: 1                 → Item takes equal share of space
+   min-width               → Minimum width before wrapping
+
+   ────────────────────────────────────────────
+   CSS GRID (display: grid):
+   ────────────────────────────────────────────
+   Used for: events-grid
+   display: grid                        → Enable Grid on container
+   grid-template-columns: repeat(2,1fr) → 2 equal columns
+   gap                                  → Space between grid cells
+   1fr = 1 fraction of available space
+
+   ────────────────────────────────────────────
+   POSITIONING:
+   ────────────────────────────────────────────
+   position: sticky  → Sticks to top while scrolling (nav bar)
+   position: static  → Default (normal document flow)
+   top: 0            → Where sticky sticks (0px from top)
+   z-index: 100      → Layer order (higher = on top)
+
+   ────────────────────────────────────────────
+   RESPONSIVE DESIGN (MEDIA QUERIES):
+   ────────────────────────────────────────────
+   @media (max-width: 768px) → Tablet and smaller
+   @media (max-width: 480px) → Mobile phones
+   @media (min-width: 769px) → Desktops
+   Changes made: 1-column grid, vertical nav, stacked footer
+
+   ────────────────────────────────────────────
+   FORMS:
+   ────────────────────────────────────────────
+   input[type="text/email/tel"]  → Styled with border, padding, background
+   :focus                         → Blue border + glow when user clicks input
+   transition                     → Smooth focus animation
+   label { display: block }       → Label on its own line above input
+
+   ────────────────────────────────────────────
+   TABLES:
+   ────────────────────────────────────────────
+   border-collapse: collapse → Single border between cells
+   thead th                  → Dark blue header, uppercase, white text
+   :nth-child(odd/even)      → Alternating row colors (zebra striping)
+   tbody tr:hover            → Row highlights on mouse hover
+
+   ────────────────────────────────────────────
+   IMAGES:
+   ────────────────────────────────────────────
+   width: 100%       → Fills container width (responsive)
+   max-width         → Prevents stretching too wide
+   height: auto      → Keeps original aspect ratio
+   border-radius: 50% → Makes image a circle
+   display: block     → Needed for margin: auto centering
+   opacity           → Controls transparency (0=invisible, 1=fully visible)
+
+   ────────────────────────────────────────────
+   EFFECTS:
+   ────────────────────────────────────────────
+   box-shadow: x y blur color → Shadow around an element
+   text-shadow: x y blur color → Shadow behind text
+   transition: property time   → Smooth animation between states
+   transform: translateY(-4px) → Move element upward (hover lift effect)
+   transform: scale(1.03)      → Grow element slightly (button hover)
+   opacity                     → Fade in/out effect on images
+   cursor: pointer             → Shows hand cursor on buttons
+   ============================================================ */
