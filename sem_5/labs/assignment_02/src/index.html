@@ -1,26 +1,75 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration tells the browser this is an HTML5 document. Always the very first line. -->
+
 <html lang="en">
+<!-- <html> is the root element that wraps all page content. lang="en" tells the browser the language is English. -->
 
 <head>
+    <!-- The <head> section is NOT visible on the page. It holds metadata (information about the page),
+         links to stylesheets, and the page title shown in the browser tab. -->
+
+    <!-- <meta charset="UTF-8"> tells the browser to use the UTF-8 character encoding,
+         so special characters (like ₹, é, ©) display correctly. -->
     <meta charset="UTF-8">
+
+    <!-- <meta name="viewport"> makes the page responsive (mobile-friendly).
+         width=device-width sets the page width to the screen width. initial-scale=1.0 sets the initial zoom level. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <title> sets the text shown in the browser tab. Every page should have a unique, descriptive title. -->
     <title>TechNova 2026 - Home</title>
-    <!-- Link to external stylesheet -->
+
+    <!-- <link rel="stylesheet"> connects an external CSS file to this HTML page.
+         href="css/style.css" is the path to the stylesheet from this HTML file's location. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+<!-- <body> contains everything that is VISIBLE on the web page — text, images, links, forms, etc. -->
 
-    <!-- Header Section -->
+    <!-- ============================================================
+         HEADER SECTION
+         <header> is a semantic HTML5 tag used for the top section of a page.
+         It typically contains the logo, site name, and tagline.
+         Using a semantic tag instead of <div> helps search engines understand the page structure.
+    ============================================================ -->
     <header>
+        <!-- <img> tag is used to display an image.
+             src="assets/images/college_logo.png" — path to the image file.
+             alt="College Logo" — text shown if the image fails to load; also used by screen readers for accessibility.
+             class="header-logo" — connects this image to CSS rules for the logo. -->
         <img src="assets/images/college_logo.png" alt="College Logo" class="header-logo">
+
+        <!-- <h1> is the most important heading on the page. There should be only ONE <h1> per page.
+             It tells search engines what the page is mainly about. -->
         <h1>TechNova 2026</h1>
+
+        <!-- <h3> is a sub-heading (smaller and less important than h1 and h2).
+             Used here for the tagline below the main title. -->
         <h3>National Level Technical Symposium</h3>
     </header>
 
-    <!-- Navigation Menu (Flexbox, Sticky) -->
+    <!-- ============================================================
+         NAVIGATION BAR
+         <nav> is a semantic HTML5 tag used for the main navigation menu.
+         It contains links that help users move between pages of the website.
+
+         ADVANCED CONCEPT — Flexbox:
+         Flexbox is a CSS layout method that arranges items in a row or column automatically.
+         The <nav> element uses display:flex in CSS so all links sit in a single horizontal row.
+
+         ADVANCED CONCEPT — Sticky Position:
+         position: sticky keeps the navigation bar fixed at the top of the screen
+         even when the user scrolls down the page. This improves usability.
+    ============================================================ -->
     <nav>
+        <!-- <span> is an inline element used to group text without adding line breaks.
+             class="nav-label" applies a specific CSS style to the "Navigate:" label. -->
         <span class="nav-label">Navigate:</span>
+
+        <!-- <a href="..."> is the anchor tag used to create hyperlinks.
+             href="index.html" — the page this link points to.
+             class="active-link" — highlights this link to show the user which page they are on. -->
         <a href="index.html" class="active-link">Home</a>
         <a href="about.html">About</a>
         <a href="technical.html">Technical Events</a>
@@ -30,18 +79,40 @@
         <a href="contact.html">Contact Us</a>
     </nav>
 
-    <!-- Main Content Area -->
+    <!-- ============================================================
+         MAIN CONTENT AREA
+         <div class="main-content"> is a container (wrapper) that holds all the
+         primary content of the page. The CSS gives it a max-width and centers it
+         on screen so it doesn't stretch too wide on large monitors.
+    ============================================================ -->
     <div class="main-content">
 
-        <!-- Banner Image Section -->
+        <!-- ============================================================
+             BANNER IMAGE SECTION
+             <section> is a semantic HTML5 tag used to group related content.
+             This section displays the large banner image at the top of the homepage.
+        ============================================================ -->
         <section class="banner-section">
+            <!-- Banner image displayed at the top of the home page.
+                 width: 100% in CSS makes it fill the container width automatically (responsive). -->
             <img src="assets/images/banner.jpg" alt="TechNova 2026 Banner" class="banner-img">
         </section>
 
-        <!-- Symposium Overview Section -->
+        <!-- ============================================================
+             SYMPOSIUM OVERVIEW SECTION
+             This section displays the event details: theme, date, and venue.
+
+             id="symposium-overview" — an ID selector in CSS (used with #) targets ONLY this element.
+             IDs are unique — only one element per page should have a given ID.
+             class="section-block" — a reusable style applied to multiple sections.
+        ============================================================ -->
         <!-- Using ID selector for this unique section -->
         <section class="section-block" id="symposium-overview">
+            <!-- <h2> is used for section headings — the second most important heading after <h1>. -->
             <h2>Welcome to TechNova 2026</h2>
+
+            <!-- <p> is the paragraph tag, used for blocks of text. -->
+            <!-- <span class="text-inline"> is used for a small inline label like "Theme:", styled differently with CSS. -->
             <p><span class="text-inline">Theme:</span> Innovate. Integrate. Inspire.</p>
             <p><span class="text-inline">Date:</span> March 15, 2026</p>
             <p><span class="text-inline">Venue:</span> SSN College of Engineering, Main Auditorium, Kalavakkam, Chennai</p>
@@ -53,16 +124,29 @@
             </p>
         </section>
 
+        <!-- <hr> is the horizontal rule tag. It draws a thin horizontal line to visually separate sections. -->
         <hr>
 
-        <!-- Highlights Section (Flexbox) -->
+        <!-- ============================================================
+             EVENT HIGHLIGHTS SECTION
+
+             ADVANCED CONCEPT — Flexbox:
+             The <div class="highlights-container"> uses display:flex in CSS.
+             Flexbox automatically arranges the child cards (highlight-card) side by side in a row.
+             flex-wrap:wrap means if there's not enough space, cards move to the next line automatically.
+        ============================================================ -->
         <section class="section-block">
             <h2 class="page-heading">Event Highlights</h2>
 
-            <!-- Flexbox container for highlight cards -->
+            <!-- Flexbox container for highlight cards.
+                 All direct children (highlight-card) will be arranged in a row by Flexbox. -->
             <div class="highlights-container">
 
+                <!-- Each highlight-card is a <div> that shows a statistic (number + label).
+                     Flexbox + flex:1 in CSS makes all cards share the available width equally. -->
                 <div class="highlight-card">
+                    <!-- <span> is used here to display the large number (500+).
+                         class="highlight-number" makes it big and bold via CSS. -->
                     <span class="highlight-number">500+</span>
                     <span class="highlight-label">Participants</span>
                 </div>
@@ -73,6 +157,7 @@
                 </div>
 
                 <div class="highlight-card">
+                    <!-- &#8377; is an HTML entity for the Indian Rupee (₹) symbol. -->
                     <span class="highlight-number">&#8377;50K</span>
                     <span class="highlight-label">Cash Prizes</span>
                 </div>
@@ -87,21 +172,37 @@
 
     </div>
 
-    <!-- Footer Section (Flexbox) -->
+    <!-- ============================================================
+         FOOTER SECTION
+         <footer> is a semantic HTML5 tag for the bottom section of the page.
+         It typically contains contact info, quick links, social media, and copyright.
+
+         ADVANCED CONCEPT — Flexbox:
+         The <div class="footer-content"> uses display:flex so the three footer
+         columns (About, Quick Links, Follow Us) sit side by side on large screens.
+         On small screens (mobile), the CSS media query stacks them vertically.
+
+         ADVANCED CONCEPT — Pseudo-element (::before):
+         The .footer-bottom::before in CSS automatically adds "©" before the copyright
+         text without writing it in the HTML. That's what a pseudo-element does.
+    ============================================================ -->
     <footer>
+        <!-- Flexbox container — holds the three footer columns side by side. -->
         <div class="footer-content">
 
-            <!-- Footer column: About -->
+            <!-- Footer column: About — displays the organization name and contact info. -->
             <div class="footer-col">
+                <!-- <h4> is the fourth-level heading, smaller than h3. Used for column titles in the footer. -->
                 <h4>TechNova 2026</h4>
                 <p>SSN College of Engineering</p>
                 <p>Kalavakkam, Chennai, Tamil Nadu</p>
                 <p>technova2026@ssn.edu.in</p>
             </div>
 
-            <!-- Footer column: Quick Links -->
+            <!-- Footer column: Quick Links — provides internal page navigation inside the footer. -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
+                <!-- These are standard <a> anchor tags for navigating between pages. -->
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="technical.html">Technical Events</a>
@@ -109,7 +210,7 @@
                 <a href="register.html">Register</a>
             </div>
 
-            <!-- Footer column: Social Media Links -->
+            <!-- Footer column: Social Media Links — href="#" is a placeholder link (goes nowhere). -->
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <a href="#">Instagram - @TechNova2026</a>
@@ -119,7 +220,9 @@
 
         </div>
 
-        <!-- Footer bottom bar with pseudo-element ::before -->
+        <!-- Footer bottom bar.
+             The © copyright symbol is added automatically by the CSS ::before pseudo-element.
+             This demonstrates how CSS can inject content without modifying the HTML. -->
         <div class="footer-bottom">
             2026 TechNova | SSN College of Engineering. All Rights Reserved.
         </div>
@@ -128,3 +231,52 @@
 </body>
 
 </html>
+
+<!--
+==============================================================
+  LEARNING SUMMARY — index.html (Home Page)
+==============================================================
+
+HTML TAGS USED AND WHY:
+
+  <!DOCTYPE html>  — Declares HTML5 document type. Always first.
+  <html lang="en"> — Root element; lang attribute helps screen readers and search engines.
+  <head>           — Contains metadata, not visible on page.
+  <meta charset>   — Ensures special characters display correctly.
+  <meta viewport>  — Makes the page responsive/mobile-friendly.
+  <title>          — Sets browser tab text; important for SEO.
+  <link>           — Links external CSS file to the page.
+  <body>           — Contains all visible page content.
+  <header>         — Semantic tag for the top section (logo, title, tagline).
+  <img>            — Displays images; always include alt text for accessibility.
+  <h1>             — Main heading; only one per page; important for SEO.
+  <h2>             — Section-level heading.
+  <h3>             — Sub-section heading (used in header for tagline).
+  <h4>             — Minor heading (used in footer column titles).
+  <nav>            — Semantic tag for navigation links.
+  <a href>         — Hyperlinks to navigate between pages.
+  <span>           — Inline element for styling a part of text.
+  <div>            — Generic block container used for grouping/layout.
+  <section>        — Semantic block element for grouping related content.
+  <p>              — Paragraph tag for blocks of text.
+  <hr>             — Horizontal rule — draws a dividing line.
+  <footer>         — Semantic tag for the bottom section of the page.
+
+CSS CONCEPTS DEMONSTRATED ON THIS PAGE:
+
+  - Element selector (body, header, nav, footer)
+  - Class selector (.header-logo, .nav-label, .main-content, etc.)
+  - ID selector (#symposium-overview)
+  - Descendant selector (nav a, footer h4)
+  - Flexbox (nav, highlights-container, footer-content)
+  - Sticky positioning (nav — stays at top when scrolling)
+  - Hover pseudo-class (nav a:hover, .highlight-card:hover)
+  - Transition (smooth hover animation)
+  - Transform (translateY on highlight card hover — lifts it up)
+  - Box Shadow (.header-logo, .highlight-card)
+  - Text Shadow (.page-heading)
+  - Pseudo-element (::before on .footer-bottom — adds © symbol)
+  - Responsive design (media queries change layout on small screens)
+
+==============================================================
+-->
