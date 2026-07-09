@@ -1,59 +1,130 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration — informs the browser this file uses HTML5 standard. -->
+
 <html lang="en">
+<!-- <html> is the root element wrapping everything. lang="en" helps browsers and accessibility tools. -->
 
 <head>
+    <!-- <head> contains invisible settings: encoding, responsive setup, page title, and CSS link. -->
+
+    <!-- UTF-8 covers all standard characters and special symbols (like ₹, ©, accented letters). -->
     <meta charset="UTF-8">
+
+    <!-- Viewport: makes the page scale correctly on mobile/tablet screens. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tab title — describes this specific page. Each page should have a unique title. -->
     <title>TechNova 2026 - Register</title>
-    <!-- Link to external stylesheet -->
+
+    <!-- Links the shared external CSS file — all pages use the same style.css for consistency. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+<!-- <body> — everything the user can see goes inside here. -->
 
-    <!-- Header Section -->
+    <!-- ============================================================
+         HEADER SECTION
+         <header> is a semantic HTML5 element representing the top part of the page.
+         It contains the college logo, event name (h1), and the tagline (h3).
+         Same header is used on all pages for consistent branding.
+    ============================================================ -->
     <header>
+        <!-- <img> embeds an image. alt text is mandatory for accessibility.
+             class="header-logo" applies round border, shadow, and centered display from CSS. -->
         <img src="assets/images/college_logo.png" alt="College Logo" class="header-logo">
+        <!-- <h1> — the main heading. Only ONE per page. Tells search engines the page topic. -->
         <h1>TechNova 2026</h1>
         <h3>National Level Technical Symposium</h3>
     </header>
 
-    <!-- Navigation Menu (Flexbox, Sticky) -->
+    <!-- ============================================================
+         NAVIGATION BAR
+         <nav> — semantic HTML5 element for navigation menus.
+         Using <nav> instead of <div> makes the code more meaningful (semantic).
+
+         ADVANCED CONCEPT — Flexbox:
+         CSS sets display:flex on nav — all child <a> links align in a horizontal row.
+         flex-wrap:wrap allows links to wrap to a new line on small screens.
+
+         ADVANCED CONCEPT — Sticky Position:
+         position: sticky; top: 0 in CSS keeps the nav bar at the top of the screen
+         while the user scrolls. z-index: 100 ensures it floats above other elements.
+    ============================================================ -->
     <nav>
+        <!-- <span class="nav-label"> is an inline text label styled differently from the links. -->
         <span class="nav-label">Navigate:</span>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="technical.html">Technical Events</a>
         <a href="nontechnical.html">Non-Technical Events</a>
         <a href="schedule.html">Schedule</a>
+        <!-- class="active-link" highlights this link to show the current page. -->
         <a href="register.html" class="active-link">Register</a>
         <a href="contact.html">Contact Us</a>
     </nav>
 
-    <!-- Main Content Area -->
+    <!-- ============================================================
+         MAIN CONTENT AREA
+         <div class="main-content"> centers the content and limits width.
+         max-width: 960px + margin: 0 auto centers it horizontally.
+    ============================================================ -->
     <div class="main-content">
 
-        <!-- Page Heading -->
+        <!-- Page Heading Section -->
         <section class="section-block">
+            <!-- class="page-heading" adds centered text with text-shadow and an underline. -->
             <h2 class="page-heading">Event Registration</h2>
+            <!-- Inline style used for one-off text centering. -->
             <p style="text-align: center;">Fill in the form below to register for TechNova 2026. All fields marked with * are mandatory.</p>
         </section>
 
-        <!-- Registration Form -->
+        <!-- ============================================================
+             REGISTRATION FORM SECTION
+             ADVANCED CONCEPT — HTML Forms:
+             A <form> collects user input and sends it to a server (or backend).
+             action="#" — "#" means "do nothing / stay on the same page" (placeholder).
+             method="post" — data is sent securely (not visible in URL, unlike "get").
+
+             FORM ELEMENTS EXPLAINED:
+             <input>    — general-purpose input field (type can be text, email, tel, submit, reset).
+             <select>   — creates a dropdown menu. <option> defines each dropdown item.
+             <textarea> — a multi-line text input box (for addresses, comments, etc.).
+             <label>    — a visible text label attached to an input.
+                          for="id" connects the label to its input field.
+                          When you click the label, the input gets focused.
+
+             class="form-container" sets the max-width of the form.
+             class="form-group" wraps each label + input pair for proper spacing.
+        ============================================================ -->
         <section class="section-block" style="border-bottom: none;">
             <div class="form-container" style="margin: 0 auto;">
+                <!-- <form> — the form tag wraps all input fields and buttons.
+                     action="#" = no server to submit to (placeholder for demo).
+                     method="post" = data is submitted in the HTTP request body (secure). -->
                 <form action="#" method="post">
 
-                    <!-- Personal Information -->
+                    <!-- ============================================================
+                         PERSONAL INFORMATION GROUP
+                         class="form-section-title" styles this heading with a blue bottom border.
+                    ============================================================ -->
                     <h3 class="form-section-title">Personal Information</h3>
 
+                    <!-- form-group wraps each label + input pair for vertical spacing. -->
                     <div class="form-group">
+                        <!-- <label for="fullname"> — clicking this label focuses the input with id="fullname". -->
                         <label for="fullname">Full Name *</label>
+                        <!-- <input type="text"> — single-line text box.
+                             id="fullname" — links this input to the label.
+                             name="fullname" — key used when form data is submitted to the server.
+                             placeholder — hint text shown inside the field before the user types.
+                             required — HTML5 validation: prevents form submission if empty. -->
                         <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="college">College Name *</label>
+                        <!-- type="text" for plain text input. required means it must be filled. -->
                         <input type="text" id="college" name="college" placeholder="Enter your college name" required>
                     </div>
 
@@ -64,8 +135,14 @@
 
                     <div class="form-group">
                         <label for="year">Year of Study *</label>
+                        <!-- <select> creates a dropdown menu.
+                             id="year" links it to the label above.
+                             required — at least one non-empty option must be selected. -->
                         <select id="year" name="year" required>
+                            <!-- <option> — one item in the dropdown.
+                                 value="" — empty value; used as default/placeholder option. -->
                             <option value="">-- Select Year --</option>
+                            <!-- value="1" — this is the data sent to the server when "1st Year" is selected. -->
                             <option value="1">1st Year</option>
                             <option value="2">2nd Year</option>
                             <option value="3">3rd Year</option>
@@ -73,24 +150,33 @@
                         </select>
                     </div>
 
-                    <!-- Contact Information -->
+                    <!-- ============================================================
+                         CONTACT INFORMATION GROUP
+                    ============================================================ -->
                     <h3 class="form-section-title">Contact Information</h3>
 
                     <div class="form-group">
                         <label for="email">Email Address *</label>
+                        <!-- type="email" — browser validates that the input looks like an email address.
+                             Shows email keyboard on mobile. -->
                         <input type="email" id="email" name="email" placeholder="example@email.com" required>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone Number *</label>
+                        <!-- type="tel" — hint for mobile browsers to show the numeric keypad.
+                             Browser does NOT validate phone format; validation needs JavaScript. -->
                         <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
                     </div>
 
-                    <!-- Event Selection -->
+                    <!-- ============================================================
+                         EVENT SELECTION GROUP
+                    ============================================================ -->
                     <h3 class="form-section-title">Event Selection</h3>
 
                     <div class="form-group">
                         <label for="technical_event">Choose Technical Event</label>
+                        <!-- Another <select> dropdown for technical event choice. Not required — optional. -->
                         <select id="technical_event" name="technical_event">
                             <option value="">-- Select Technical Event --</option>
                             <option value="paper">Paper Presentation</option>
@@ -113,11 +199,16 @@
                         </select>
                     </div>
 
-                    <!-- Additional Information -->
+                    <!-- ============================================================
+                         ADDITIONAL INFORMATION GROUP
+                    ============================================================ -->
                     <h3 class="form-section-title">Additional Information</h3>
 
                     <div class="form-group">
                         <label for="address">Address</label>
+                        <!-- <textarea> is a multi-line text input box.
+                             rows="4" — controls the initial height (4 visible lines).
+                             It is NOT a self-closing tag — must have </textarea>. -->
                         <textarea id="address" name="address" rows="4" placeholder="Enter your address"></textarea>
                     </div>
 
@@ -126,23 +217,49 @@
                         <textarea id="comments" name="comments" rows="4" placeholder="Any special requirements or comments"></textarea>
                     </div>
 
-                    <!-- Form Buttons -->
+                    <!-- ============================================================
+                         FORM BUTTONS
+                         ADVANCED CONCEPT — Hover and Transition on Buttons:
+                         .btn-submit:hover in CSS changes the background color and
+                         slightly scales the button (transform: scale(1.03)) — making it
+                         feel interactive. transition: 0.3s ensures a smooth animation.
+
+                         type="submit" — sends the form data when clicked.
+                         type="reset"  — clears all form fields back to their default values.
+                    ============================================================ -->
                     <div class="form-group" style="text-align: center; margin-top: 30px;">
+                        <!-- type="submit" — clicking this button submits the form. -->
                         <input type="submit" value="Submit Registration" class="btn-submit">
+                        <!-- type="reset" — clicking this clears all filled form fields. -->
                         <input type="reset" value="Reset Form" class="btn-reset">
                     </div>
 
                 </form>
+                <!-- End of <form> -->
+
             </div>
         </section>
 
     </div>
+    <!-- End of .main-content -->
 
-    <!-- Footer Section (Flexbox) -->
+    <!-- ============================================================
+         FOOTER SECTION
+         <footer> is a semantic HTML5 tag for the bottom of the page.
+         Contains organization info, quick links, and social media.
+
+         ADVANCED CONCEPT — Flexbox:
+         .footer-content uses display:flex to place 3 columns side by side.
+         On mobile screens, media queries make them stack vertically.
+
+         ADVANCED CONCEPT — Pseudo-element ::before:
+         CSS rule: .footer-bottom::before { content: "© "; } adds the copyright
+         symbol automatically — no need to type it in the HTML.
+    ============================================================ -->
     <footer>
         <div class="footer-content">
 
-            <!-- Footer column: About -->
+            <!-- Footer column 1: Organization info -->
             <div class="footer-col">
                 <h4>TechNova 2026</h4>
                 <p>SSN College of Engineering</p>
@@ -150,7 +267,7 @@
                 <p>technova2026@ssn.edu.in</p>
             </div>
 
-            <!-- Footer column: Quick Links -->
+            <!-- Footer column 2: Quick navigation links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
@@ -160,7 +277,7 @@
                 <a href="register.html">Register</a>
             </div>
 
-            <!-- Footer column: Social Media Links -->
+            <!-- Footer column 3: Social media links -->
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <a href="#">Instagram - @TechNova2026</a>
@@ -170,7 +287,7 @@
 
         </div>
 
-        <!-- Footer bottom bar with pseudo-element ::before -->
+        <!-- The © symbol is added by the CSS ::before pseudo-element. -->
         <div class="footer-bottom">
             2026 TechNova | SSN College of Engineering. All Rights Reserved.
         </div>
@@ -179,3 +296,58 @@
 </body>
 
 </html>
+
+<!--
+==============================================================
+  LEARNING SUMMARY — register.html (Registration Form Page)
+==============================================================
+
+HTML TAGS USED AND WHY:
+
+  <!DOCTYPE html>   — HTML5 declaration.
+  <html lang="en">  — Root element.
+  <head>            — Metadata section.
+  <meta charset>    — Character encoding.
+  <meta viewport>   — Mobile responsiveness.
+  <title>           — Browser tab title.
+  <link>            — Connects external CSS.
+  <body>            — Visible page content.
+  <header>          — Semantic top section.
+  <img>             — College logo with alt text.
+  <h1>              — Main heading (one per page).
+  <h2>              — Page heading (Event Registration).
+  <h3 class="form-section-title"> — Form group headings (Personal, Contact, etc.).
+  <h4>              — Footer column headings.
+  <nav>             — Navigation menu.
+  <a href>          — Navigation links.
+  <span>            — Inline elements (nav-label).
+  <div>             — Block containers (main-content, form-container, form-group, footer-col).
+  <section>         — Groups sections of the page.
+  <p>               — Paragraph text.
+  <form>            — The form element that collects user data.
+  <label>           — Text label for each input; for= attribute links it to input's id.
+  <input type="text">  — Single-line text field (name, college, department).
+  <input type="email"> — Email input with built-in format validation.
+  <input type="tel">   — Phone number input (shows numeric keyboard on mobile).
+  <input type="submit">— Button that submits the form.
+  <input type="reset"> — Button that resets/clears all form fields.
+  <select>          — Dropdown list.
+  <option>          — Each item inside a dropdown.
+  <textarea>        — Multi-line text box (for address and comments).
+  <footer>          — Semantic bottom section.
+
+CSS CONCEPTS DEMONSTRATED ON THIS PAGE:
+
+  - Form input styling (.form-container input, select, textarea)
+  - Focus pseudo-class (:focus — highlights input with blue border when clicked)
+  - Transition (smooth border/shadow change on focus)
+  - Box shadow (glow effect on focused inputs)
+  - Hover on buttons (.btn-submit:hover, .btn-reset:hover)
+  - Transform: scale() (submit button slightly grows on hover)
+  - Flexbox (nav, footer-content)
+  - Sticky position (nav)
+  - Pseudo-element ::before (footer © symbol)
+  - Responsive design (form goes full-width on mobile, buttons stack)
+
+==============================================================
+-->
