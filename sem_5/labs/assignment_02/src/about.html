@@ -1,27 +1,66 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration — always first line, tells the browser this is HTML5. -->
+
 <html lang="en">
+<!-- <html> is the root container for the entire page. lang="en" specifies the language. -->
 
 <head>
+    <!-- <head> holds metadata and links. Nothing inside <head> is shown on the page directly. -->
+
+    <!-- UTF-8 encoding supports all standard characters including special symbols. -->
     <meta charset="UTF-8">
+
+    <!-- Viewport meta tag — required for mobile responsiveness.
+         Without this, mobile browsers zoom out and the page looks tiny on phones. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown in the browser tab. Each page should have a unique, meaningful title. -->
     <title>TechNova 2026 - About</title>
-    <!-- Link to external stylesheet -->
+
+    <!-- Links the shared external CSS file. All 7 pages use the same style.css. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+<!-- Everything the user can see on the screen goes inside <body>. -->
 
-    <!-- Header Section -->
+    <!-- ============================================================
+         HEADER SECTION
+         Repeated on every page — the site logo, title, and tagline.
+         <header> is a semantic HTML5 element (it has meaning, unlike <div>).
+         Using <header> tells browsers and search engines "this is the page header."
+    ============================================================ -->
     <header>
+        <!-- College logo image. alt text is critical for accessibility (screen readers)
+             and for users with slow internet where images fail to load. -->
         <img src="assets/images/college_logo.png" alt="College Logo" class="header-logo">
+
+        <!-- Only ONE <h1> per page — it represents the most important heading.
+             Here it is the event name. -->
         <h1>TechNova 2026</h1>
+
+        <!-- <h3> for the sub-heading/tagline below the main title. -->
         <h3>National Level Technical Symposium</h3>
     </header>
 
-    <!-- Navigation Menu (Flexbox, Sticky) -->
+    <!-- ============================================================
+         NAVIGATION BAR
+         <nav> is a semantic HTML5 element specifically for navigation menus.
+         All page links are grouped inside <nav> so the browser knows they are navigation links.
+
+         ADVANCED CONCEPT — Flexbox:
+         In CSS, nav has display:flex — this lines up all the <a> links in a single horizontal row.
+
+         ADVANCED CONCEPT — Sticky Position:
+         position: sticky; top: 0; keeps the nav "stuck" at the top of the screen
+         as the user scrolls down, so the menu is always visible.
+    ============================================================ -->
     <nav>
+        <!-- <span> is an inline-level element. No new line is created before or after it.
+             It is used here to show the "Navigate:" label inside the nav bar. -->
         <span class="nav-label">Navigate:</span>
         <a href="index.html">Home</a>
+        <!-- class="active-link" highlights this link to tell the user they are on the About page. -->
         <a href="about.html" class="active-link">About</a>
         <a href="technical.html">Technical Events</a>
         <a href="nontechnical.html">Non-Technical Events</a>
@@ -30,18 +69,34 @@
         <a href="contact.html">Contact Us</a>
     </nav>
 
-    <!-- Main Content Area -->
+    <!-- ============================================================
+         MAIN CONTENT AREA
+         <div class="main-content"> is a generic block container.
+         The CSS gives it a maximum width of 960px and centers it on the page
+         using margin: 0 auto — this prevents content from stretching too wide on big screens.
+    ============================================================ -->
     <div class="main-content">
 
-        <!-- About Page Heading -->
+        <!-- ============================================================
+             PAGE HEADING SECTION
+             <section> is a semantic HTML5 tag — it groups a logically related portion of a page.
+             class="section-block" applies a shared style (bottom border + spacing) used on all sections.
+        ============================================================ -->
         <section class="section-block">
+            <!-- class="page-heading" applies text-shadow and border-bottom styling from CSS. -->
             <h2 class="page-heading">About the Symposium</h2>
         </section>
 
-        <!-- Symposium Objectives -->
+        <!-- ============================================================
+             OBJECTIVES SECTION
+             <ul> is an unordered list (bullet points).
+             Each <li> is a list item — one bullet point.
+             Use <ul> when the order of items does NOT matter.
+        ============================================================ -->
         <section class="section-block">
             <h3>Objectives</h3>
             <ul>
+                <!-- <li> — list item. Each one becomes a bullet point inside the <ul>. -->
                 <li>To provide a platform for students to showcase their technical skills.</li>
                 <li>To encourage innovation and creative thinking among students.</li>
                 <li>To bridge the gap between academia and industry.</li>
@@ -50,9 +105,15 @@
             </ul>
         </section>
 
-        <!-- Vision and Mission -->
+        <!-- ============================================================
+             VISION AND MISSION SECTION
+             class="vision-block" applies a styled left-border box (blue accent line on the left).
+             This demonstrates the border-left CSS property for visual emphasis.
+        ============================================================ -->
         <section class="section-block">
             <h3>Vision</h3>
+            <!-- <div class="vision-block"> is a block-level container for the vision text.
+                 It gets a colored left border and background color via CSS. -->
             <div class="vision-block">
                 <p>
                     To become the most prestigious national-level student symposium that nurtures future
@@ -70,19 +131,31 @@
             </div>
         </section>
 
-        <!-- Organizing Department -->
+        <!-- ============================================================
+             ORGANIZING DEPARTMENT SECTION
+             class="info-bar" applies a light-blue background box style.
+             <b> makes the enclosed text bold — used inline inside a paragraph.
+        ============================================================ -->
         <section class="section-block">
             <h3>Organizing Department</h3>
+            <!-- <div class="info-bar"> is a full-width block element displayed as a styled info box. -->
             <div class="info-bar">
+                <!-- <b> makes text bold. It's used here to emphasize the department name inline. -->
                 TechNova 2026 is organized by the <b>Department of Computer Science and Engineering</b>,
                 SSN College of Engineering (Sri Sivasubramaniya Nadar College of Engineering). The department
                 has a strong tradition of organizing student-driven events that promote technical excellence.
             </div>
         </section>
 
-        <!-- Why Participate -->
+        <!-- ============================================================
+             WHY PARTICIPATE SECTION
+             <ol> is an ordered list (numbered list).
+             Use <ol> when the ORDER of items matters.
+             Each <li> becomes a numbered item (1, 2, 3...).
+        ============================================================ -->
         <section class="section-block">
             <h3>Why Should You Participate?</h3>
+            <!-- Ordered list — items are automatically numbered by the browser. -->
             <ol>
                 <li>Compete with talented students from across the country.</li>
                 <li>Win exciting cash prizes and certificates.</li>
@@ -92,10 +165,20 @@
             </ol>
         </section>
 
-        <!-- Benefits of Participation -->
+        <!-- ============================================================
+             BENEFITS SECTION
+             style="border-bottom: none;" — inline CSS applied directly on the element.
+             This removes the bottom border on the LAST section so the page ends cleanly.
+
+             ADVANCED CONCEPT — Pseudo-class (:hover):
+             In CSS, .badge uses display: inline-block.
+             The difference: inline elements cannot have width/height, inline-block can.
+        ============================================================ -->
         <section class="section-block" style="border-bottom: none;">
             <h3>Benefits of Participation</h3>
             <ul>
+                <!-- <span class="badge"> creates a small pill-shaped label using display:inline-block in CSS.
+                     It sits inline (next to text) but can have its own padding and border-radius. -->
                 <li><span class="badge">Certificate</span> Participation certificate for all registered students.</li>
                 <li><span class="badge">Award</span> Winner and runner-up certificates for event winners.</li>
                 <li><span class="badge">Prize</span> Cash prizes for top performers.</li>
@@ -107,11 +190,23 @@
 
     </div>
 
-    <!-- Footer Section (Flexbox) -->
+    <!-- ============================================================
+         FOOTER SECTION
+         <footer> is a semantic tag for the page's bottom section.
+         Used consistently across all pages for site-wide contact, links, and copyright info.
+
+         ADVANCED CONCEPT — Flexbox:
+         .footer-content uses display:flex so the three columns sit side by side.
+         On small screens, media queries change it to flex-direction:column (stacked vertically).
+
+         ADVANCED CONCEPT — Pseudo-element (::before):
+         .footer-bottom::before in CSS adds the © symbol automatically before the copyright text.
+         Pseudo-elements let you add content without changing the HTML.
+    ============================================================ -->
     <footer>
         <div class="footer-content">
 
-            <!-- Footer column: About -->
+            <!-- Footer column: Organization info -->
             <div class="footer-col">
                 <h4>TechNova 2026</h4>
                 <p>SSN College of Engineering</p>
@@ -119,7 +214,7 @@
                 <p>technova2026@ssn.edu.in</p>
             </div>
 
-            <!-- Footer column: Quick Links -->
+            <!-- Footer column: Quick navigation links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
@@ -129,7 +224,7 @@
                 <a href="register.html">Register</a>
             </div>
 
-            <!-- Footer column: Social Media Links -->
+            <!-- Footer column: Social media links (href="#" = placeholder, goes nowhere) -->
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <a href="#">Instagram - @TechNova2026</a>
@@ -139,7 +234,7 @@
 
         </div>
 
-        <!-- Footer bottom bar with pseudo-element ::before -->
+        <!-- The © symbol before this text is injected by the CSS ::before pseudo-element. -->
         <div class="footer-bottom">
             2026 TechNova | SSN College of Engineering. All Rights Reserved.
         </div>
@@ -148,3 +243,55 @@
 </body>
 
 </html>
+
+<!--
+==============================================================
+  LEARNING SUMMARY — about.html (About Page)
+==============================================================
+
+HTML TAGS USED AND WHY:
+
+  <!DOCTYPE html>  — Declares this as an HTML5 document.
+  <html lang="en"> — Root element; lang helps accessibility tools and SEO.
+  <head>           — Invisible metadata section.
+  <meta charset>   — Supports special characters (UTF-8).
+  <meta viewport>  — Makes page mobile-friendly.
+  <title>          — Tab title, unique for each page.
+  <link>           — Links shared external CSS stylesheet.
+  <body>           — All visible page content.
+  <header>         — Semantic tag for page top section (logo, title).
+  <img>            — Displays college logo image with alt text.
+  <h1>             — Main page heading, one per page.
+  <h2>             — Section heading (About the Symposium).
+  <h3>             — Sub-section headings (Objectives, Vision, etc.).
+  <h4>             — Footer column headings.
+  <nav>            — Semantic navigation menu.
+  <a href>         — Page navigation links.
+  <span>           — Inline styling (nav-label, badge).
+  <div>            — Block container (main-content, vision-block, info-bar, footer-col).
+  <section>        — Groups related content logically.
+  <p>              — Paragraph text.
+  <ul>             — Unordered (bullet) list — used when order doesn't matter.
+  <ol>             — Ordered (numbered) list — used when order matters.
+  <li>             — List item inside ul or ol.
+  <b>              — Bold text (inline, for emphasis within a sentence).
+  <footer>         — Semantic tag for the page bottom section.
+
+CSS CONCEPTS DEMONSTRATED ON THIS PAGE:
+
+  - Element selector (h1, h2, h3, ul, ol, li, footer)
+  - Class selector (.section-block, .vision-block, .badge, .info-bar, .page-heading)
+  - Descendant selector (footer a, footer h4)
+  - Flexbox (nav, footer-content)
+  - Sticky position (nav)
+  - Hover pseudo-class (nav a:hover, footer a:hover)
+  - Transition (smooth color change on hover)
+  - display: inline-block (.badge — can have padding but sits inline with text)
+  - display: block (.info-bar — full-width box)
+  - display: inline (.text-inline — no line break)
+  - Pseudo-element ::before (.footer-bottom::before adds © symbol)
+  - Border-left (vision-block — colored accent line on left side)
+  - Responsive media query (stacks nav links and footer columns on mobile)
+
+==============================================================
+-->
