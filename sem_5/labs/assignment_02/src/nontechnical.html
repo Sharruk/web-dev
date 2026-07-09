@@ -1,118 +1,54 @@
 <!DOCTYPE html>
-<!-- DOCTYPE — tells the browser this is an HTML5 document. Always the very first line. -->
 
 <html lang="en">
-<!-- <html> is the root element. lang="en" helps browsers and screen readers know the language. -->
 
 <head>
-    <!-- <head> section is invisible on the page — it holds settings and metadata. -->
-
-    <!-- UTF-8 encoding handles all characters: letters, numbers, symbols, and special characters. -->
     <meta charset="UTF-8">
-
-    <!-- Viewport tag makes the page responsive — it adjusts to phone and tablet screen sizes. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Tab title — should describe this specific page clearly. -->
     <title>TechNova 2026 - Non-Technical Events</title>
-
-    <!-- Links the shared CSS file. One CSS file styles all HTML pages. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<!-- <body> holds all the visible content: text, images, tables, forms, etc. -->
 
-    <!-- ============================================================
-         HEADER SECTION
-         <header> is a semantic HTML5 tag used for the top part of the page.
-         Contains the college logo, the event name (h1), and the tagline (h3).
-         This header is the same across all 7 pages for visual consistency.
-    ============================================================ -->
+    <!-- Header -->
     <header>
-        <!-- alt text on <img> is essential for accessibility and SEO.
-             The browser shows the alt text when the image fails to load. -->
         <img src="assets/images/college_logo.png" alt="College Logo" class="header-logo">
-        <!-- ONE <h1> per page — it's the main heading and the most important SEO element. -->
         <h1>TechNova 2026</h1>
         <h3>National Level Technical Symposium</h3>
     </header>
 
-    <!-- ============================================================
-         NAVIGATION BAR
-         <nav> is a semantic HTML5 element that wraps the site navigation menu.
-         It tells the browser that these links are for navigation (not random links).
-
-         ADVANCED CONCEPT — Flexbox:
-         In CSS, nav uses display:flex — this makes all <a> links align horizontally
-         in a row automatically without using table or float.
-
-         ADVANCED CONCEPT — Sticky Position:
-         position: sticky; top: 0; makes the nav bar stay "glued" to the top of the
-         viewport when the user scrolls down. z-index: 100 ensures it appears on top
-         of other content and doesn't get hidden behind it.
-    ============================================================ -->
+    <!-- Navigation -->
     <nav>
-        <!-- <span class="nav-label"> — inline element for the "Navigate:" text label in the nav bar. -->
         <span class="nav-label">Navigate:</span>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="technical.html">Technical Events</a>
-        <!-- class="active-link" — highlights this link to show the user which page they are on. -->
         <a href="nontechnical.html" class="active-link">Non-Technical Events</a>
         <a href="schedule.html">Schedule</a>
         <a href="register.html">Register</a>
         <a href="contact.html">Contact Us</a>
     </nav>
 
-    <!-- ============================================================
-         MAIN CONTENT AREA
-         <div class="main-content"> is a wrapper that centers content on the page.
-         max-width: 960px and margin: 0 auto in CSS keep it from stretching on large screens.
-    ============================================================ -->
     <div class="main-content">
 
-        <!-- ============================================================
-             PAGE HEADING SECTION
-             <section> is a semantic HTML5 tag for a logically grouped part of a page.
-             class="section-block" adds a subtle bottom border and spacing.
-        ============================================================ -->
+        <!-- Non-Technical Events Section -->
         <section class="section-block">
-            <!-- class="page-heading" adds text-shadow, border-bottom, and center alignment via CSS. -->
             <h2 class="page-heading">Non-Technical Events</h2>
-            <!-- Inline style for one-off alignment. Not best practice but useful for simple adjustments. -->
             <p style="text-align: center;">Take a break from tech and enjoy our fun and entertaining events!</p>
         </section>
 
-        <!-- ============================================================
-             EVENTS GRID — CSS GRID
-             ADVANCED CONCEPT — CSS Grid:
-             display:grid is a 2-dimensional layout system.
-             grid-template-columns: repeat(2, 1fr) creates 2 equal-width columns.
-             "1fr" means 1 fraction of the available space.
-             gap: 20px adds space between all grid items.
-             On small screens, a media query changes this to a single column layout.
-        ============================================================ -->
+        <!-- Event Cards -->
         <div class="events-grid">
 
-            <!-- ============================================================
-                 EVENT CARD — Photography
-                 <article> is a semantic HTML5 element for self-contained content.
-                 Each event card is an independent unit, so <article> is more meaningful than <div>.
-            ============================================================ -->
+            <!-- Event Card: Photography -->
             <article class="event-card">
-                <!-- <h3> is the third-level heading — used for event title inside the card. -->
                 <h3>Event 1: Photography</h3>
-
-                <!-- <span class="text-inline"> is an inline element that styles just the label word in bold blue. -->
                 <p><span class="text-inline">Description:</span> Capture the best moments of TechNova 2026. Participants must click photos
                 on the spot based on the given theme and submit them for judging.</p>
 
-                <!-- <h4> used for minor sub-headings inside the card (Rules, Prize Information). -->
                 <h4>Rules:</h4>
-                <!-- <ul> — unordered (bullet) list. Items don't need to be in a specific order. -->
                 <ul>
-                    <!-- Each <li> is one bullet point inside the list. -->
                     <li>Individual event only.</li>
                     <li>Participants must bring their own camera or smartphone.</li>
                     <li>Theme will be announced on the day of the event.</li>
@@ -120,27 +56,9 @@
                     <li>Photo editing is not allowed.</li>
                 </ul>
 
-                <!-- A simple paragraph with an inline label showing the registration fee. -->
                 <p><span class="text-inline">Registration Fee:</span> Rs. 50 per participant.</p>
 
                 <h4>Prize Information:</h4>
-                <!-- ============================================================
-                     HTML TABLE — Prize Information
-                     Tables organize data into rows and columns.
-                     <table>  — wraps the entire table.
-                     <thead>  — contains the header row (column labels).
-                     <tbody>  — contains the data rows.
-                     <tr>     — one horizontal row in the table.
-                     <th>     — header cell (bold by default).
-                     <td>     — data cell (regular text).
-
-                     ADVANCED CONCEPT — :nth-child pseudo-class:
-                     In CSS, tbody tr:nth-child(odd) and :nth-child(even) selectors
-                     give alternating row background colors (zebra striping) for better readability.
-
-                     ADVANCED CONCEPT — :hover pseudo-class on rows:
-                     tbody tr:hover changes the row background color when the mouse moves over it.
-                ============================================================ -->
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -161,10 +79,7 @@
                 </table>
             </article>
 
-            <!-- ============================================================
-                 EVENT CARD — Quiz Competition
-                 Same card structure: article > h3 > description > rules list > fee > prize table.
-            ============================================================ -->
+            <!-- Event Card: Quiz Competition -->
             <article class="event-card">
                 <h3>Event 2: Quiz Competition</h3>
                 <p><span class="text-inline">Description:</span> Test your general knowledge and awareness in this fast-paced quiz competition.
@@ -202,9 +117,7 @@
                 </table>
             </article>
 
-            <!-- ============================================================
-                 EVENT CARD — Treasure Hunt
-            ============================================================ -->
+            <!-- Event Card: Treasure Hunt -->
             <article class="event-card">
                 <h3>Event 3: Treasure Hunt</h3>
                 <p><span class="text-inline">Description:</span> Follow the clues, solve puzzles, and find the hidden treasure around the
@@ -242,9 +155,7 @@
                 </table>
             </article>
 
-            <!-- ============================================================
-                 EVENT CARD — Gaming Tournament
-            ============================================================ -->
+            <!-- Event Card: Gaming Tournament -->
             <article class="event-card">
                 <h3>Event 4: Gaming Tournament</h3>
                 <p><span class="text-inline">Description:</span> Compete in popular mobile and PC games in this exciting gaming tournament.
@@ -283,28 +194,13 @@
             </article>
 
         </div>
-        <!-- End of .events-grid — CSS Grid ends here. -->
 
     </div>
-    <!-- End of .main-content -->
 
-    <!-- ============================================================
-         FOOTER SECTION
-         <footer> is a semantic HTML5 tag for the page's bottom section.
-         Repeated on every page for consistency.
-
-         ADVANCED CONCEPT — Flexbox in Footer:
-         .footer-content uses display:flex + justify-content:space-between
-         to spread the 3 footer columns evenly across the full width.
-
-         ADVANCED CONCEPT — Pseudo-element ::before:
-         .footer-bottom::before { content: "© "; } in CSS adds the © copyright
-         symbol automatically without writing it in the HTML.
-    ============================================================ -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
 
-            <!-- Footer column 1: Contact details -->
             <div class="footer-col">
                 <h4>TechNova 2026</h4>
                 <p>SSN College of Engineering</p>
@@ -312,7 +208,6 @@
                 <p>technova2026@ssn.edu.in</p>
             </div>
 
-            <!-- Footer column 2: Quick page links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
@@ -322,7 +217,6 @@
                 <a href="register.html">Register</a>
             </div>
 
-            <!-- Footer column 3: Social media (href="#" = placeholder) -->
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <a href="#">Instagram - @TechNova2026</a>
@@ -332,7 +226,6 @@
 
         </div>
 
-        <!-- © is added by the CSS ::before pseudo-element (not written here in HTML). -->
         <div class="footer-bottom">
             2026 TechNova | SSN College of Engineering. All Rights Reserved.
         </div>
@@ -341,56 +234,3 @@
 </body>
 
 </html>
-
-<!--
-==============================================================
-  LEARNING SUMMARY — nontechnical.html (Non-Technical Events Page)
-==============================================================
-
-HTML TAGS USED AND WHY:
-
-  <!DOCTYPE html>  — HTML5 declaration.
-  <html lang="en"> — Root element.
-  <head>           — Invisible metadata section.
-  <meta charset>   — UTF-8 for character support.
-  <meta viewport>  — Responsive design for mobile.
-  <title>          — Browser tab name.
-  <link>           — Links external CSS.
-  <body>           — All visible content.
-  <header>         — Semantic top section (logo, title, tagline).
-  <img>            — College logo image with alt text.
-  <h1>             — Main page heading (only one).
-  <h2>             — Section heading (Non-Technical Events).
-  <h3>             — Event card titles.
-  <h4>             — Minor headings (Rules, Prize Information).
-  <nav>            — Navigation menu (semantic).
-  <a href>         — Navigation hyperlinks.
-  <span>           — Inline labels (text-inline, nav-label).
-  <div>            — Block containers (main-content, events-grid, footer-col).
-  <section>        — Groups page heading block.
-  <article>        — Self-contained event card (semantic, preferred over div).
-  <p>              — Paragraphs (descriptions, fees).
-  <ul>             — Unordered bullet list for rules.
-  <li>             — Individual list items.
-  <table>          — Prize information table.
-  <thead>          — Table header row section.
-  <tbody>          — Table data rows section.
-  <tr>             — Table row.
-  <th>             — Table header cell.
-  <td>             — Table data cell.
-  <footer>         — Semantic page bottom section.
-
-CSS CONCEPTS DEMONSTRATED ON THIS PAGE:
-
-  - CSS Grid (events-grid — 2 columns using repeat(2, 1fr))
-  - Flexbox (nav, footer-content)
-  - Sticky position (nav stays at top while scrolling)
-  - Hover pseudo-class (event-card:hover, table row hover)
-  - :nth-child(odd/even) — alternating table row colors
-  - Transition (smooth hover effects)
-  - Box Shadow (event cards, table shadow effect via border)
-  - Pseudo-element ::before (adds © to footer)
-  - Responsive media query (grid → 1 column on mobile)
-
-==============================================================
--->
