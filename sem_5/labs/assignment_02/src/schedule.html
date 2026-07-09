@@ -1,60 +1,135 @@
 <!DOCTYPE html>
+<!-- DOCTYPE — declares this as an HTML5 document. Must be the very first line. -->
+
 <html lang="en">
+<!-- <html> is the root of the entire page. Everything must be inside this tag. -->
 
 <head>
+    <!-- <head> contains invisible settings for the page — not shown to the user. -->
+
+    <!-- Ensures all characters (including special symbols like ₹) render correctly. -->
     <meta charset="UTF-8">
+
+    <!-- Makes the page responsive (adjusts layout for phones, tablets, and desktops). -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown in the browser tab. Unique per page. -->
     <title>TechNova 2026 - Event Schedule</title>
-    <!-- Link to external stylesheet -->
+
+    <!-- Connects the shared CSS stylesheet to this HTML page. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+<!-- <body> contains all visible content: text, images, links, tables, etc. -->
 
-    <!-- Header Section -->
+    <!-- ============================================================
+         HEADER SECTION
+         <header> is a semantic HTML5 element for the top section of the page.
+         It identifies the site name and branding to users and search engines.
+         The same header appears on all 7 pages for a consistent look.
+    ============================================================ -->
     <header>
+        <!-- <img> embeds an image file.
+             src — file path to the image.
+             alt — text description (shown if image doesn't load; used by screen readers). -->
         <img src="assets/images/college_logo.png" alt="College Logo" class="header-logo">
+
+        <!-- <h1> is the primary heading — one per page. Used for the event name. -->
         <h1>TechNova 2026</h1>
         <h3>National Level Technical Symposium</h3>
     </header>
 
-    <!-- Navigation Menu (Flexbox, Sticky) -->
+    <!-- ============================================================
+         NAVIGATION BAR
+         <nav> is a semantic HTML5 element specifically meant for navigation links.
+         Grouping links inside <nav> helps screen readers skip navigation if needed.
+
+         ADVANCED CONCEPT — Flexbox:
+         In CSS, nav has display:flex — it automatically arranges the <a> links
+         in a horizontal row. flex-wrap:wrap lets links wrap to next line on small screens.
+
+         ADVANCED CONCEPT — Sticky Position:
+         position: sticky; top: 0; makes the nav stay fixed at the top of the
+         screen even when you scroll down. z-index: 100 ensures it stays on top.
+    ============================================================ -->
     <nav>
+        <!-- <span class="nav-label"> is an inline label inside the nav. Styled with CSS. -->
         <span class="nav-label">Navigate:</span>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="technical.html">Technical Events</a>
         <a href="nontechnical.html">Non-Technical Events</a>
+        <!-- class="active-link" marks this as the currently active page. -->
         <a href="schedule.html" class="active-link">Schedule</a>
         <a href="register.html">Register</a>
         <a href="contact.html">Contact Us</a>
     </nav>
 
-    <!-- Main Content Area -->
+    <!-- ============================================================
+         MAIN CONTENT AREA
+         <div class="main-content"> is a generic block-level wrapper.
+         CSS limits it to max-width: 960px and centers it with margin: 0 auto.
+         This ensures content doesn't stretch too wide on large monitors.
+    ============================================================ -->
     <div class="main-content">
 
-        <!-- Page Heading -->
+        <!-- ============================================================
+             PAGE HEADING SECTION
+             <section> groups related content blocks.
+             class="section-block" adds a bottom border separator.
+             class="info-bar" on the inner div creates a styled highlighted info box.
+        ============================================================ -->
         <section class="section-block">
+            <!-- class="page-heading" adds text-shadow and a bottom border underline via CSS. -->
             <h2 class="page-heading">Event Schedule</h2>
+            <!-- <div class="info-bar"> creates a light-colored info box for date and venue. -->
             <div class="info-bar">
+                <!-- <span class="text-inline"> is an inline element for bold colored labels. -->
                 <p><span class="text-inline">Date:</span> March 15, 2026</p>
                 <p><span class="text-inline">Venue:</span> SSN College of Engineering, Kalavakkam, Chennai</p>
             </div>
         </section>
 
-        <!-- Schedule Table -->
+        <!-- ============================================================
+             SCHEDULE TABLE SECTION
+             ADVANCED CONCEPT — HTML Tables:
+             Tables should ONLY be used for tabular data (data that fits naturally
+             in rows and columns). This schedule is perfect for a table.
+             NEVER use tables for page layout — use Flexbox or Grid for that.
+
+             TABLE STRUCTURE:
+             <table>  — the whole table.
+             <thead>  — header section (column labels).
+             <tbody>  — data section (actual schedule rows).
+             <tr>     — one horizontal row.
+             <th>     — header cell (bold, in <thead>).
+             <td>     — data cell (in <tbody>).
+
+             class="styled-table" applies from CSS:
+             - border-collapse: collapse — removes double borders between cells.
+             - Alternating row colors using :nth-child(odd/even).
+             - Row highlight on hover using tbody tr:hover.
+             - Dark blue header row with uppercase white text.
+        ============================================================ -->
         <section class="section-block">
             <h3>Complete Timetable</h3>
             <table class="styled-table">
+                <!-- <thead> groups the header row — tells the browser these are column labels. -->
                 <thead>
                     <tr>
+                        <!-- <th> — header cell. Browsers typically bold it and screen readers identify it as a header. -->
                         <th>Time</th>
                         <th>Event</th>
                         <th>Venue</th>
                     </tr>
                 </thead>
+
+                <!-- <tbody> groups all the data rows of the schedule. -->
                 <tbody>
+                    <!-- Each <tr> is one row in the schedule. -->
                     <tr>
+                        <!-- <td> — regular data cell inside the table body. -->
                         <td>8:00 AM - 9:00 AM</td>
                         <td>Registration and Reporting</td>
                         <td>Main Gate</td>
@@ -123,9 +198,17 @@
             </table>
         </section>
 
-        <!-- Note Section -->
+        <!-- ============================================================
+             IMPORTANT NOTES SECTION
+             style="border-bottom: none;" — inline CSS to remove the bottom border
+             on the last section, so the page doesn't end with an extra line.
+
+             <ul> — unordered list (bullet points) for the notes.
+             Order doesn't matter here, so <ul> is correct (not <ol>).
+        ============================================================ -->
         <section class="section-block" style="border-bottom: none;">
             <h3>Important Notes</h3>
+            <!-- Unordered list — each item is a bullet point. -->
             <ul>
                 <li>Participants are requested to report 30 minutes before the event start time.</li>
                 <li>Carry your college ID card and registration confirmation.</li>
@@ -135,12 +218,26 @@
         </section>
 
     </div>
+    <!-- End of .main-content -->
 
-    <!-- Footer Section (Flexbox) -->
+    <!-- ============================================================
+         FOOTER SECTION
+         <footer> is a semantic HTML5 tag at the bottom of every page.
+         Contains organization info, quick links, and social media.
+
+         ADVANCED CONCEPT — Flexbox in Footer:
+         .footer-content uses display:flex — 3 footer columns (footer-col divs)
+         are placed side by side. justify-content:space-between spreads them evenly.
+
+         ADVANCED CONCEPT — Pseudo-element (::before):
+         In CSS, .footer-bottom::before { content: "© "; } inserts the © symbol
+         automatically before the text — without writing it in the HTML file.
+    ============================================================ -->
     <footer>
+        <!-- Flexbox container — 3 columns are laid out horizontally by CSS Flexbox. -->
         <div class="footer-content">
 
-            <!-- Footer column: About -->
+            <!-- Footer column 1: Organization details -->
             <div class="footer-col">
                 <h4>TechNova 2026</h4>
                 <p>SSN College of Engineering</p>
@@ -148,7 +245,7 @@
                 <p>technova2026@ssn.edu.in</p>
             </div>
 
-            <!-- Footer column: Quick Links -->
+            <!-- Footer column 2: Page navigation links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
@@ -158,7 +255,7 @@
                 <a href="register.html">Register</a>
             </div>
 
-            <!-- Footer column: Social Media Links -->
+            <!-- Footer column 3: Social media (href="#" = placeholder link) -->
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <a href="#">Instagram - @TechNova2026</a>
@@ -168,7 +265,7 @@
 
         </div>
 
-        <!-- Footer bottom bar with pseudo-element ::before -->
+        <!-- The © copyright symbol is inserted by CSS ::before pseudo-element — not written in HTML. -->
         <div class="footer-bottom">
             2026 TechNova | SSN College of Engineering. All Rights Reserved.
         </div>
@@ -177,3 +274,59 @@
 </body>
 
 </html>
+
+<!--
+==============================================================
+  LEARNING SUMMARY — schedule.html (Event Schedule Page)
+==============================================================
+
+HTML TAGS USED AND WHY:
+
+  <!DOCTYPE html>  — Declares HTML5.
+  <html lang="en"> — Root element.
+  <head>           — Invisible metadata.
+  <meta charset>   — Character encoding.
+  <meta viewport>  — Mobile responsiveness.
+  <title>          — Browser tab text.
+  <link>           — Links CSS stylesheet.
+  <body>           — All visible content.
+  <header>         — Semantic top section.
+  <img>            — College logo.
+  <h1>             — Main heading (one per page).
+  <h2>             — Section heading (Event Schedule).
+  <h3>             — Sub-section headings (Complete Timetable, Important Notes).
+  <h4>             — Footer column headings.
+  <nav>            — Semantic navigation menu.
+  <a href>         — Navigation links.
+  <span>           — Inline label (text-inline, nav-label).
+  <div>            — Block containers (main-content, info-bar, footer-col).
+  <section>        — Logical grouping of page content.
+  <p>              — Paragraph text.
+  <table>          — Tabular schedule data (correct use of table).
+  <thead>          — Header row of the table (column labels: Time, Event, Venue).
+  <tbody>          — Data rows of the table (all 13 schedule entries).
+  <tr>             — Each schedule row.
+  <th>             — Header cells (Time, Event, Venue — bold and dark background).
+  <td>             — Data cells (times, event names, venues).
+  <ul>             — Unordered bullet list (Important Notes).
+  <li>             — Each note/bullet item.
+  <footer>         — Semantic page bottom section.
+
+CSS CONCEPTS DEMONSTRATED ON THIS PAGE:
+
+  - Table styling (styled-table class):
+      * border-collapse: collapse — removes double borders
+      * Padding in cells for readability
+      * Dark background on thead th (header row)
+      * Alternating row colors: :nth-child(odd) and :nth-child(even)
+      * Row hover highlight: tbody tr:hover
+  - Flexbox (nav, footer-content)
+  - Sticky position (nav)
+  - Hover pseudo-class (nav a:hover, footer a:hover)
+  - Transition (smooth color/shadow changes)
+  - Pseudo-element ::before (© in footer)
+  - Text-shadow (.page-heading)
+  - Responsive media query (table font size reduces on mobile)
+
+==============================================================
+-->
