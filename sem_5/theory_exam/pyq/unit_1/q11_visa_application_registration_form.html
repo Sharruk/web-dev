@@ -1,0 +1,120 @@
+<!--
+Question No: 11
+Part C - 12 Marks
+
+Explain the commonly used HTML form elements, their attributes and functions,
+with an example code for a Visa Application Registration Form.
+
+The form should include:
+
+- Full Name
+- Passport Number
+- Email
+- Date of Birth
+- Gender
+- Nationality
+- Visa Type
+- Address
+- Travel Dates
+- Upload Passport Copy
+- Declaration Checkbox
+- Submit Button
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visa Registration Form</title>
+</head>
+
+<body>
+
+<h2>Visa Application Registration Form</h2>
+
+<form>
+
+<label>Full Name:</label><br>
+<input type="text" required><br><br>
+
+<label>Passport Number:</label><br>
+<input type="text" required><br><br>
+
+<label>Email:</label><br>
+<input type="email" required><br><br>
+
+<label>Date of Birth:</label><br>
+<input type="date"><br><br>
+
+<label>Gender:</label><br>
+
+<input type="radio" name="gender"> Male
+
+<input type="radio" name="gender"> Female
+
+<input type="radio" name="gender"> Other
+
+<br><br>
+
+<label>Nationality:</label><br>
+
+<select>
+
+<option>India</option>
+
+<option>USA</option>
+
+<option>Canada</option>
+
+<option>Australia</option>
+
+</select>
+
+<br><br>
+
+<label>Visa Type:</label><br>
+
+<select>
+
+<option>Tourist</option>
+
+<option>Business</option>
+
+<option>Student</option>
+
+<option>Work</option>
+
+</select>
+
+<br><br>
+
+<label>Address:</label><br>
+
+<textarea rows="4" cols="40"></textarea>
+
+<br><br>
+
+<label>Travel Date:</label><br>
+
+<input type="date">
+
+<br><br>
+
+<label>Upload Passport Copy:</label><br>
+
+<input type="file">
+
+<br><br>
+
+<input type="checkbox">
+
+I declare that the above information is correct.
+
+<br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
