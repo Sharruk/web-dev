@@ -1,0 +1,553 @@
+Complete Code (Single HTML File)
+
+Save this as index.html and open it in a browser.
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Whack-a-Mole</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    text-align:center;
+    background:#f2f2f2;
+}
+
+.board{
+    display:grid;
+    grid-template-columns:repeat(3,100px);
+    gap:15px;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.hole{
+    width:100px;
+    height:100px;
+    background:brown;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:45px;
+    cursor:pointer;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🐹 Whack-a-Mole</h1>
+
+<h2>Score : <span id="score">0</span></h2>
+
+<h2>Time : <span id="time">30</span></h2>
+
+<div class="board">
+
+<div class="hole"></div>
+<div class="hole"></div>
+<div class="hole"></div>
+
+<div class="hole"></div>
+<div class="hole"></div>
+<div class="hole"></div>
+
+<div class="hole"></div>
+<div class="hole"></div>
+<div class="hole"></div>
+
+</div>
+
+<button onclick="startGame()">Start Game</button>
+
+<script>
+
+let holes = document.querySelectorAll(".hole");
+
+let score = 0;
+
+let current = -1;
+
+let timer;
+
+
+
+function showMole(){
+
+    if(current != -1){
+
+        holes[current].textContent = "";
+    }
+
+    current = Math.floor(Math.random()*holes.length);
+
+    holes[current].textContent = "🐹";
+
+    holes[current].onclick = function(){
+
+        score++;
+
+        document.getElementById("score").textContent = score;
+
+        holes[current].textContent = "";
+
+        current = -1;
+
+    };
+
+}
+
+
+
+function startGame(){
+
+    score = 0;
+
+    document.getElementById("score").textContent = score;
+
+    document.getElementById("time").textContent = 30;
+
+    clearInterval(timer);
+
+    showMole();
+
+    timer = setInterval(showMole,1000);
+
+    setTimeout(endGame,30000);
+
+    let time = 30;
+
+    let countdown = setInterval(function(){
+
+        time--;
+
+        document.getElementById("time").textContent = time;
+
+        if(time==0){
+
+            clearInterval(countdown);
+
+        }
+
+    },1000);
+
+}
+
+
+
+function endGame(){
+
+    clearInterval(timer);
+
+    if(current != -1){
+
+        holes[current].textContent = "";
+
+    }
+
+    alert("Game Over!\nYour Score = " + score);
+
+}
+
+</script>
+
+</body>
+</html>
+Now let's understand it.
+Step 1
+let holes = document.querySelectorAll(".hole");
+
+Suppose HTML is
+
+<div class="hole"></div>
+<div class="hole"></div>
+<div class="hole"></div>
+
+querySelectorAll() finds all holes.
+
+So
+
+holes
+
+becomes
+
+holes[0]
+holes[1]
+holes[2]
+...
+holes[8]
+
+There are 9 holes.
+
+Step 2
+let score = 0;
+
+Keeps track of points.
+
+Initially
+
+score = 0
+
+If user clicks
+
+score = 1
+
+Again
+
+score = 2
+
+and so on.
+
+Step 3
+let current = -1;
+
+This remembers where the mole is.
+
+Suppose
+
+current = 4
+
+means
+
+Hole 4 contains 🐹
+
+If
+
+current = 7
+
+then
+
+Hole 7 contains 🐹
+
+Why start with -1?
+
+Because
+
+-1 means
+"No mole yet."
+Step 4
+function showMole()
+
+This function displays a mole.
+
+It runs every second.
+
+Remove old mole
+if(current!=-1){
+
+holes[current].textContent="";
+}
+
+Suppose
+
+current=3
+
+Before creating a new mole,
+
+remove
+
+🐹
+
+from hole 3.
+
+Choose a random hole
+current=Math.floor(Math.random()*holes.length);
+
+Suppose
+
+holes.length=9
+
+Math.random()
+
+returns
+
+0.12
+0.45
+0.78
+0.99
+
+Multiply by 9
+
+1.08
+4.05
+7.02
+8.91
+
+Floor
+
+1
+4
+7
+8
+
+So
+
+current
+
+becomes
+
+0
+1
+2
+...
+8
+
+Randomly.
+
+Display mole
+holes[current].textContent="🐹";
+
+Example
+
+If
+
+current=5
+
+then
+
+Hole 5
+
+🐹
+
+appears.
+
+Step 5
+holes[current].onclick=function(){
+
+When user clicks the mole,
+
+run this code.
+
+Increase score
+
+score++;
+
+Equivalent to
+
+score=score+1;
+
+Update webpage
+
+document.getElementById("score").textContent=score;
+
+Suppose score
+
+5
+
+Screen becomes
+
+Score : 5
+
+Remove mole
+
+holes[current].textContent="";
+
+Hide the mole.
+
+Step 6
+timer=setInterval(showMole,1000);
+
+This is one of the most important lines.
+
+It means
+
+Every 1000 milliseconds
+
+↓
+
+run showMole()
+
+↓
+
+again
+
+↓
+
+again
+
+↓
+
+again
+
+So
+
+1 second
+
+🐹
+
+↓
+
+1 second
+
+🐹
+
+↓
+
+1 second
+
+🐹
+Step 7
+clearInterval(timer);
+
+Stops the repeated calls.
+
+Without it,
+
+showMole()
+
+would run forever.
+Step 8
+setTimeout(endGame,30000);
+
+Unlike setInterval, this runs only once.
+
+Meaning
+
+Wait
+
+30 seconds
+
+↓
+
+Call endGame()
+Step 9
+
+Countdown
+
+let countdown=setInterval(function(){
+
+time--;
+
+},1000);
+
+Every second
+
+30
+
+↓
+
+29
+
+↓
+
+28
+
+↓
+
+27
+
+↓
+
+...
+
+↓
+
+0
+Step 10
+alert("Game Over");
+
+Shows
+
+Game Over
+
+Your Score = 15
+Difference Between setInterval() and setTimeout()
+setInterval()
+
+Runs again and again.
+
+setInterval(showMole,1000);
+
+Output
+
+1 second
+
+↓
+
+showMole()
+
+↓
+
+1 second
+
+↓
+
+showMole()
+
+↓
+
+1 second
+
+↓
+
+showMole()
+setTimeout()
+
+Runs only once.
+
+setTimeout(endGame,30000);
+
+Output
+
+30 seconds
+
+↓
+
+endGame()
+Entire Game Flow
+Start Button
+      │
+      ▼
+startGame()
+      │
+      ▼
+Score = 0
+Time = 30
+      │
+      ▼
+setInterval(showMole)
+      │
+      ▼
+🐹 appears
+      │
+      ▼
+Click?
+      │
+ ┌────┴─────┐
+ │          │
+Yes        No
+ │          │
+ ▼          ▼
+Score++   Mole disappears
+ │
+ ▼
+Next Mole
+ │
+ ▼
+30 Seconds Finished
+ │
+ ▼
+setTimeout()
+ │
+ ▼
+endGame()
+ │
+ ▼
+clearInterval()
+ │
+ ▼
+Game Over
+
+This version is a good foundation for understanding the assignment. Once you're comfortable with it, you can extend it by adding features like a miss counter, different difficulty levels, or high-score tracking.

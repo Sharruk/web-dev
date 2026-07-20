@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TechNova 2026 - Register</title>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="assets/images/college_logo.png" alt="College Logo" width="80" height="80">
+        <h1>TechNova 2026</h1>
+        <h3>National Level Technical Symposium</h3>
+    </header>
+
+    <hr>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <b>Navigate:</b>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="technical.html">Technical Events</a> |
+        <a href="nontechnical.html">Non-Technical Events</a> |
+        <a href="schedule.html">Schedule</a> |
+        <a href="register.html">Register</a> |
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <hr>
+
+    <!-- Page Heading -->
+    <section>
+        <h2>Event Registration</h2>
+        <p>Fill in the form below to register for TechNova 2026. All fields marked with * are mandatory.</p>
+    </section>
+
+    <!-- Registration Form -->
+    <section>
+        <form action="#" method="post">
+
+            <!-- Personal Information -->
+            <h3>Personal Information</h3>
+
+            <p>
+                <label for="fullname">Full Name *</label><br>
+                <input type="text" id="fullname" name="fullname" size="40" placeholder="Enter your full name">
+            </p>
+
+            <p>
+                <label for="college">College Name *</label><br>
+                <input type="text" id="college" name="college" size="40" placeholder="Enter your college name">
+            </p>
+
+            <p>
+                <label for="department">Department *</label><br>
+                <input type="text" id="department" name="department" size="40" placeholder="e.g. Computer Science">
+            </p>
+
+            <p>
+                <label for="year">Year of Study *</label><br>
+                <select id="year" name="year">
+                    <option value="">-- Select Year --</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+            </p>
+
+            <hr>
+
+            <!-- Contact Information -->
+            <h3>Contact Information</h3>
+
+            <p>
+                <label for="email">Email Address *</label><br>
+                <input type="email" id="email" name="email" size="40" placeholder="example@email.com">
+            </p>
+
+            <p>
+                <label for="phone">Phone Number *</label><br>
+                <input type="tel" id="phone" name="phone" size="40" placeholder="10-digit mobile number">
+            </p>
+
+            <hr>
+
+            <!-- Event Selection -->
+            <h3>Event Selection</h3>
+
+            <p>
+                <label for="technical_event">Choose Technical Event</label><br>
+                <select id="technical_event" name="technical_event">
+                    <option value="">-- Select Technical Event --</option>
+                    <option value="paper">Paper Presentation</option>
+                    <option value="webdesign">Web Design Contest</option>
+                    <option value="coding">Coding Challenge</option>
+                    <option value="project">Project Expo</option>
+                    <option value="none">Not Participating</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="nontechnical_event">Choose Non-Technical Event</label><br>
+                <select id="nontechnical_event" name="nontechnical_event">
+                    <option value="">-- Select Non-Technical Event --</option>
+                    <option value="photography">Photography</option>
+                    <option value="quiz">Quiz Competition</option>
+                    <option value="treasure">Treasure Hunt</option>
+                    <option value="gaming">Gaming Tournament</option>
+                    <option value="none">Not Participating</option>
+                </select>
+            </p>
+
+            <hr>
+
+            <!-- Additional Information -->
+            <h3>Additional Information</h3>
+
+            <p>
+                <label for="address">Address</label><br>
+                <textarea id="address" name="address" rows="4" cols="40" placeholder="Enter your address"></textarea>
+            </p>
+
+            <p>
+                <label for="comments">Comments / Special Requirements</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="40" placeholder="Any special requirements or comments"></textarea>
+            </p>
+
+            <hr>
+
+            <!-- Form Buttons -->
+            <p>
+                <input type="submit" value="Submit Registration">
+                &nbsp;&nbsp;
+                <input type="reset" value="Reset Form">
+            </p>
+
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>TechNova 2026 | SSN College of Engineering</p>
+        <p>For queries: technova2026@ssn.edu.in</p>
+    </footer>
+
+</body>
+
+</html>

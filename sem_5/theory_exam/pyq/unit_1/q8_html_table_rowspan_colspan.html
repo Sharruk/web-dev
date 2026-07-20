@@ -1,0 +1,95 @@
+<!--
+Question No: 12
+Part C - 12 Marks
+
+Create the following HTML table using rowspan and colspan.
+
++-----------+-------------------+---------+
+| Quick     | brown fox         | jumps   |
++-----------+---------+---------+---------+
+|           | lazy    | dog     | and     |
+|           +---------+---------+---------+
+| over the  | then    | it      | fall    |
+|           +-----------------------------+
+|           | pray to a lion              |
++-----------+-----------------------------+
+
+Use appropriate HTML table tags.
+Include CSS selectors wherever required.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Table Design</title>
+
+<style>
+
+table{
+    border-collapse:collapse;
+    width:500px;
+}
+
+td{
+    border:1px solid black;
+    padding:10px;
+    text-align:center;
+}
+
+/* Element Selector */
+td{
+    font-family:Arial;
+}
+
+/* Class Selector */
+.highlight{
+    background-color:lightyellow;
+}
+
+/* ID Selector */
+#title{
+    color:blue;
+}
+
+/* Universal Selector */
+*{
+    margin:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2 id="title">HTML Table Example</h2>
+
+<table>
+
+<tr>
+    <td>Quick</td>
+    <td colspan="2">brown fox</td>
+    <td>jumps</td>
+</tr>
+
+<tr>
+    <td rowspan="3">over the</td>
+    <td>lazy</td>
+    <td class="highlight">dog</td>
+    <td>and</td>
+</tr>
+
+<tr>
+    <td>then</td>
+    <td>it</td>
+    <td>fall</td>
+</tr>
+
+<tr>
+    <td colspan="3">pray to a lion</td>
+</tr>
+
+</table>
+
+</body>
+</html>

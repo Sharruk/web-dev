@@ -1,0 +1,54 @@
+
+Piece of code 
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div></div>
+
+    <script>
+        let div = document.querySelector("div");
+        div.textContent = "🐹";
+    </script>
+
+</body>
+</html>
+----
+(Question1) Develop a Whack-a-Mole game board using HTML and CSS. Create a 3 × 3 grid containing 9 circular holes. Use CSS Grid for the layout and apply appropriate styling to make each hole appear as a brown circle. The board should be centered on the page.
+
+
+Given the following: <div class="board">
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+</div>
+(Question 2) Write a JavaScript program to implement the following:
+    • Select all holes using querySelectorAll(). 
+    • Randomly choose one hole using Math.random(). 
+    • Insert a 🐹 emoji into the selected hole using the textContent property. 
+    • Remove the emoji from the previously selected hole. 
+    • Display the mole at a new random position every second.
+(Question 3) Modify the Whack-a-Mole game such that:
+    • A 🐹 emoji appears in a random hole every 1 second. 
+    • The user can click the mole to earn 1 point. 
+    • Display the current score above the game board. 
+    • Only one mole should be visible at any time.
+Question 4 (Game Timer)
+Extend the Whack-a-Mole game by implementing the following features:
+    • Display a random mole every second. 
+    • Increase the score when the mole is clicked. 
+    • Run the game for 30 seconds. 
+    • Display "Game Over" and the final score when the timer expires. 
+Question 5 (Miss Counter)
+Enhance the game by maintaining both Score and Misses.
+    • Increase the score when the user successfully clicks the mole. 
+    • If the mole disappears before being clicked, increment the Miss counter. 
+    • Display both values on the screen. 
+
+

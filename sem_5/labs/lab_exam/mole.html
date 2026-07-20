@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .board{
+            width: 300px;
+            height: 300px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+        }
+
+        .hole{
+            width:70px;
+            height:70px;
+            margin: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body bgcolor=yellow>
+    <center>
+        <h1>Whack-a-Mole</h1>
+        <h3>score:</h3>
+        <div class="board">
+            <div class="hole" id="1">1</div>
+            <div class="hole" id="2">2</div>
+            <div class="hole" id="3">3</div>
+            <div class="hole" id="4">4</div>
+            <div class="hole" id="5">5</div>
+            <div class="hole" id="6">6</div>
+            <div class="hole" id="7">7</div>
+            <div class="hole" id="8">8</div>
+            <div class="hole" id="9">9</div>
+        </div>
+        <button>Start Game</button>
+    </center>
+
+    <script>
+        let hole_id= document.getElementById("4");
+        hole_id.textContent= "🐹";
+    </script>
+
+
+    
+</body>
