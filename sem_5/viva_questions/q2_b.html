@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <ul>
+            <li>One</li>
+            <li id="Second">Two</li>
+            <li>Three</li>
+            <li>Four</li>
+        </ul>
+    </div>
+
+    <script>
+        let x = document.getElementById("Second");
+
+        console.log(x.textContent);
+        console.log(x.parentNode);
+        console.log(x.parentNode.firstElementChild.textContent);
+        console.log(x.parentNode.lastElementChild.textContent);
+        console.log(x.nextElementSibling.textContent);
+        console.log(x.previousElementSibling.textContent);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Node Properties</title>
+</head>
+
+<body>
+
+    <div>
+        <ul id="myList">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+        </ul>
+    </div>
+
+    <script>
+        // Select the UL element
+        let ul = document.getElementById("myList");
+
+        // Select the second LI element
+        let second = ul.children[1];
+
+        // 1. textContent
+        console.log("Text Content:", second.textContent);
+
+        // 2. parentNode
+        console.log("Parent Node:", second.parentNode);
+
+        // 3. firstChild
+        console.log("First Child:", ul.firstChild);
+
+        // 4. lastChild
+        console.log("Last Child:", ul.lastChild);
+
+        // 5. nextSibling
+        console.log("Next Sibling:", second.nextSibling);
+
+        // 6. previousSibling
+        console.log("Previous Sibling:", second.previousSibling);
+    </script>
+
+</body>
+</html>
