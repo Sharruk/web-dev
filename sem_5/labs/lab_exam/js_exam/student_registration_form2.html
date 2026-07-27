@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Student Registration Form </title>
+
+        
+        <style>
+            body{
+                font-family:Arial, sans-serif;
+                background:#f4f4f4;
+                justify-content:center;
+                align-items:center; 
+            }
+            h1{
+                margin-bottom:10px;
+            }
+        </style>
+
+    </head>
+
+
+    <body background="yellow">
+
+        <center>
+        <h1> Student Registration Form </h1>
+            <form>
+                <label id="Name"> Name: </label>
+                <input type="text"> <br>
+
+                <label id="Password"> Password: </label>
+                <input type="password"> <br>
+
+                <label id="Email"> Email: </label>
+                <input type="email"> <br>
+
+                <label id="Age"> Age: </label>
+                <input type="number"><br>
+
+                <label id="DOB"> Date of Birth: </label>
+                <input type="date"><br>
+
+                <label id="Time"> Time: </label>
+                <input type="time"><br>
+
+                <label id="Favourite"> Favourite color:</label>
+                <input type="color"><br>
+
+                <lable id="Level"> Skill Level </lable>
+                <input type="range"> <br>
+
+                <label id="gender"> Gender: </label>
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+                <br>
+
+
+                <label id="Language"> Language: </label>
+                <input type="checkbox"> C
+                <input type="checkbox"> Java
+                <input type="checkbox"> Python
+
+                <label id="Department"> Department: </label>
+                <select>
+                    <option>CSE</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>Mechanical</option>
+                    <option>Civil</option>
+                    <option>BME</option>
+                    <option>IT</option>
+                    <option>Chemical</option>
+                </select>
+                <br>
+
+                <label id="address"> Address: </label><br>
+                <textarea rows="10" cols="40"></textarea>
+                <br>
+
+                <label id="City"> City: </label>
+                <input type="text">
+                <br>
+
+                <label id="Resume"> Resume: </label>
+                <input type="file">
+                <br>
+
+            </form>
+            <button onclick="submit()">submit</button>
+        </center>
+
+        <script>
+                    var Student = new Object();
+                    window.addEventListener("submit", function(){
+
+                        Student.name=document.getElementById("Name").value;
+                        Student.password=document.getElementById("Password").value;
+                        Student.Email=document.getElementById("Email").value;
+                        Student.Age=document.getElementById("Age").value;
+                        Student.DOB=document.getElementById("DOB").value;
+                        Student.Time=document.getElementById("Time").value;
+                        Student.Favourite=document.getElementById("Favourite").value;
+                        Student.Level=document.getElementById("Level").value;
+                        Student.gender=document.getElementById("gender").value;
+                        Student.Language=document.getElementById("Language").value;
+                        Student.Department=document.getElementById("Department").value;
+                        Student.address=document.getElementById("address").value;
+                        Student.City=document.getElementById("City").value;
+                        Student.Resume=document.getElementById("Resume").value;
+                       
+
+                        console.log(Student.name);
+                    });   
+            </script>
+    </body>
+</html>

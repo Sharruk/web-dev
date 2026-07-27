@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Student Registration Form </title>
+
+        
+        <style>
+
+            div{
+                width:450px;
+                text-align: center;
+                border: 3px solid blue;
+                background-color: yellow;
+            }
+            label{
+                font-style: italic;
+            }
+        </style>
+
+    </head>
+
+
+    <body>
+
+
+        <center>
+        <h1> Student Registration Form </h1>
+            <div>
+            <form>
+                <label> Name: </label>
+                <input  id="Name" type="text"> <br>
+
+                <label> Password: </label>
+                <input id="Password" type="password"> <br>
+
+                <label> Email: </label>
+                <input id="Email" type="email"> <br>
+
+                <label> Age: </label>
+                <input id="Age" type="number"><br>
+
+                <label> Date of Birth: </label>
+                <input id="DOB" type="date"><br>
+
+                <label> Time: </label>
+                <input id="Time" type="time"><br>
+
+                <label> Favourite color:</label>
+                <input id="Favourite" type="color"><br>
+
+                <lable> Skill Level </lable>
+                <input id="Level" type="range"> <br>
+
+                <label > Gender: </label>
+                <input id="gender" type="radio" name="gender"> Male
+                <input id="gender" type="radio" name="gender"> Female
+                <br>
+
+
+                <label> Language: </label>
+                <input id="Language" type="checkbox"> C
+                <input id="Language" type="checkbox"> Java
+                <input id="Language" type="checkbox"> Python
+
+                <label> Department: </label>
+                <select id="Department">
+                    <option>CSE</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>Mechanical</option>
+                    <option>Civil</option>
+                    <option>BME</option>
+                    <option>IT</option>
+                    <option>Chemical</option>
+                </select>
+                <br>
+
+                <label> Address: </label><br>
+                <textarea id="address" rows="10" cols="40"></textarea>
+                <br>
+
+                <label> City: </label>
+                <input id="City" type="text">
+                <br>
+
+                <label> Resume: </label>
+                <input id="Resume"type="file">
+                <br>
+
+            </form>
+            <button onclick="submit()">submit</button>
+            </div>
+        </center>
+
+        <script>
+            function submit(){
+                        var Student = new Object();
+                        Student.name=document.getElementById("Name").value;
+                        Student.password=document.getElementById("Password").value;
+                        Student.Email=document.getElementById("Email").value;
+                        Student.Age=document.getElementById("Age").value;
+                        Student.DOB=document.getElementById("DOB").value;
+                        Student.Time=document.getElementById("Time").value;
+                        Student.Favourite=document.getElementById("Favourite").value;
+                        Student.Level=document.getElementById("Level").value;
+                        Student.gender=document.getElementById("gender").value;
+                        Student.Language=document.getElementById("Language").value;
+                        Student.Department=document.getElementById("Department").value;
+                        Student.address=document.getElementById("address").value;
+                        Student.City=document.getElementById("City").value;
+                        Student.Resume=document.getElementById("Resume").value;
+
+
+                        console.log("Name:"+Student.name);
+                        console.log("Password:"+Student.password);
+                        console.log("Email:"+Student.Email);
+                        console.log("Age:"+Student.Age);
+                        console.log("DOB:"+Student.DOB);
+                        console.log("Time:"+Student.Time);
+                        console.log("Favouite Color:"+Student.Favourite);
+                        console.log("Skill Level:"+Student.Level);
+                        console.log("Gender:"+Student.gender);
+                        console.log("Language:"+Student.Language);
+                        console.log("Department:"+Student.Department);
+                        console.log("Address:"+Student.address);
+                        console.log("Password:"+Student.password);
+                        console.log("City:"+Student.City);
+                        console.log("Resume:"+Student.Resume);
+                };
+            </script>
+    </body>
+</html>
