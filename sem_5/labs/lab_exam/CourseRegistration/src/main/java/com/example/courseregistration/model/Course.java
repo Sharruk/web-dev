@@ -1,4 +1,4 @@
-﻿package com.example.courseregistration.model;
+package com.example.courseregistration.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
