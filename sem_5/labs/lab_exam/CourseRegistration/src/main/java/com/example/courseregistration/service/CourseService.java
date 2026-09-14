@@ -1,4 +1,4 @@
-﻿package com.example.courseregistration.service;
+package com.example.courseregistration.service;
 
 import com.example.courseregistration.model.Course;
 import com.example.courseregistration.repository.CourseRepository;
