@@ -1,4 +1,4 @@
-﻿package com.example.courseregistration.repository;
+package com.example.courseregistration.repository;
 
 import com.example.courseregistration.model.Course;
 import org.springframework.data.mongodb.repository.MongoRepository;
